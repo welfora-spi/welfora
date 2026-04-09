@@ -3,315 +3,248 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welfora — Pianifica il tuo futuro con metodo e chiarezza</title>
-  <meta name="description" content="Pianificazione previdenziale professionale e indipendente. Scopri la tua situazione pensionistica reale con il simulatore SPI." />
+  <title>Welfora — Software pensionistico per consulenti</title>
+  <meta name="description" content="Welfora SPI: simulazione pensionistica professionale per consulenti finanziari, commercialisti e consulenti del lavoro." />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 
-  <!-- ── NAVIGAZIONE ─────────────────────────────────────────── -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="index.html" class="nav__logo">Wel<span>fora</span></a>
-        <ul class="nav__links">
-          <li><a href="#servizi">Servizi</a></li>
-          <li><a href="#dati">Dati</a></li>
-          <li><a href="calcolatore.html">Simulatore</a></li>
-          <li><a href="#protocollo">Protocollo</a></li>
-          <li><a href="consulenza.html" class="nav__cta">Inizia ora</a></li>
-        </ul>
-        <button class="nav__burger" id="burger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-  <div class="nav__mobile" id="navMobile">
-    <a href="#servizi">Servizi</a>
-    <a href="#dati">Dati</a>
-    <a href="calcolatore.html">Simulatore</a>
-    <a href="#protocollo">Protocollo</a>
-    <a href="consulenza.html" class="btn btn--rosso" style="width:fit-content">Inizia ora</a>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Welfora" height="36" style="display:block" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calcolatore.html">Calcolatore</a></li>
+        <li><a href="consulenza.html">Consulenza</a></li>
+        <li><a href="https://app.spitool.it" target="_blank">
+          <span class="btn btn-primary" style="padding:9px 22px;font-size:0.82rem;">Accedi a SPI</span>
+        </a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
   </div>
+</header>
 
-  <!-- ── HERO ────────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="hero__bg-lines" aria-hidden="true"></div>
-    <div class="container">
-      <div class="hero__content">
-        <div class="badge animate-fadeup">Consulenza previdenziale indipendente</div>
-        <h1 class="display-title animate-fadeup delay-1">
-          Pianifica il tuo futuro<br>
-          <em>con metodo e chiarezza</em>
-        </h1>
-        <p class="lead animate-fadeup delay-2">
-          Il sistema pensionistico italiano è complesso e in continuo cambiamento.
-          Welfora ti aiuta a capire la tua posizione reale e costruire una strategia solida,
-          senza conflitti di interesse.
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Software pensionistico professionale</div>
+        <h1>La pensione, calcolata <em>con precisione</em></h1>
+        <p class="hero-subtitle">
+          SPI di Welfora è lo strumento di simulazione pensionistica progettato per consulenti finanziari, commercialisti e consulenti del lavoro. Scenari INPS, casse professionali e molto altro.
         </p>
-        <div class="hero__actions animate-fadeup delay-3">
-          <a href="calcolatore.html" class="btn btn--rosso btn--lg">
-            Calcola la tua pensione →
-          </a>
-          <a href="#servizi" class="btn btn--ghost btn--lg">Scopri i servizi</a>
+        <div class="hero-actions">
+          <a href="calcolatore.html" class="btn btn-primary btn-lg">Prova il calcolatore</a>
+          <a href="consulenza.html" class="btn btn-outline btn-lg">Prenota consulenza</a>
         </div>
       </div>
-    </div>
-
-    <!-- Stat bar -->
-    <div class="stat-bar animate-fadeup delay-4">
-      <div class="container">
-        <div class="stat-bar__inner">
-          <div class="stat-item">
-            <div class="stat-item__num">27M</div>
-            <div class="stat-item__label">lavoratori attivi INPS</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-item__num">15,7M</div>
-            <div class="stat-item__label">pensionati</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-item__num">1,72×</div>
-            <div class="stat-item__label">ratio attivi/pensionati</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-item__num">83,7</div>
-            <div class="stat-item__label">anni aspettativa di vita</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-item__num">-31%</div>
-            <div class="stat-item__label">tasso sostituzione medio</div>
+      <div class="hero-visual">
+        <div class="hero-badge">Nuovo<br/>2025</div>
+        <div class="hero-card">
+          <div class="hero-card-label">Simulazione pensione</div>
+          <div class="hero-card-value">€ 1.840</div>
+          <div class="hero-card-sub">stima mensile lorda · età uscita 67</div>
+          <div class="hero-card-bars">
+            <div class="bar-row">
+              <span class="bar-label">Retributivo</span>
+              <div class="bar-track"><div class="bar-fill" style="width:62%"></div></div>
+              <span class="bar-amount">€ 1.140</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Contributivo</span>
+              <div class="bar-track"><div class="bar-fill green" style="width:38%"></div></div>
+              <span class="bar-amount">€ 700</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Integrativa</span>
+              <div class="bar-track"><div class="bar-fill" style="width:18%;opacity:0.35"></div></div>
+              <span class="bar-amount">+ auspic.</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── PROBLEMA ────────────────────────────────────────────── -->
-  <section class="section section--beige" id="dati">
-    <div class="container">
-      <div class="problem__header">
-        <p class="eyebrow">Il problema</p>
-        <h2 class="section-title">
-          La maggior parte degli italiani<br>
-          non sa <em>cosa li aspetta</em>
-        </h2>
-        <div class="divider-oro"></div>
-        <p class="lead">
-          Il passaggio al sistema contributivo ha cambiato tutto. La pensione futura non è più garantita
-          — dipende da quanto hai versato, per quanto tempo, e da quando esci.
-        </p>
+<!-- STATS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item fade-up"><span class="stat-number" data-target="9">0</span><span class="stat-label">Casse professionali integrate</span></div>
+      <div class="stat-item fade-up"><span class="stat-number" data-target="14">0</span><span class="stat-label">Giorni di prova gratuita</span></div>
+      <div class="stat-item fade-up"><span class="stat-number" data-target="3">0</span><span class="stat-label">Categorie gestione INPS</span></div>
+      <div class="stat-item fade-up"><span class="stat-number" data-target="100">0</span><span class="stat-label">% cloud · nessun install</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Perché SPI</div>
+      <h2>Tutto ciò che serve al consulente previdenziale</h2>
+      <p>Un software costruito da chi conosce la normativa pensionistica italiana, per chi la applica ogni giorno.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h4>Simulazioni multi-scenario</h4>
+        <p>Calcola più scenari di uscita — Vecchiaia, Anticipata, Quota 103, APe Sociale — e confrontali per il cliente in un solo schermo.</p>
       </div>
-      <div class="problem__grid mt-48">
-        <div class="card problem__card">
-          <div class="card__num">01</div>
-          <h3 class="card__title">Il tasso di sostituzione crolla</h3>
-          <p class="card__body">Chi va in pensione oggi con il sistema misto percepisce il 55–65% dell'ultimo reddito. Le generazioni future, full contributivo, scenderanno al 50% o meno.</p>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
-        <div class="card problem__card">
-          <div class="card__num">02</div>
-          <h3 class="card__title">I requisiti cambiano continuamente</h3>
-          <p class="card__body">Quota 100, Quota 102, Quota 103, APe Sociale, Opzione Donna: ogni anno nuove regole. Chi non monitora rischia di perdere finestre favorevoli.</p>
+        <h4>Casse professionali</h4>
+        <p>Supporta INARCASSA, Cassa Forense, ENPAM, ENPACL, ENPAB, ENPAP e altre 4 casse del D.Lgs. 103/1996 con aliquote aggiornate 2026.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <div class="card problem__card">
-          <div class="card__num">03</div>
-          <h3 class="card__title">L'estratto INPS non basta</h3>
-          <p class="card__body">I dati esistono ma non vengono interpretati. Sapere i contributi versati è il punto di partenza, non la risposta. Serve un piano.</p>
+        <h4>Gestione clienti</h4>
+        <p>Archivio clienti, importazione estratto conto INPS in XML, storico simulazioni e report PDF professionali pronti da consegnare.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <div class="card problem__card">
-          <div class="card__num">04</div>
-          <h3 class="card__title">I consulenti hanno conflitti di interesse</h3>
-          <p class="card__body">Chi vende prodotti finanziari o assicurativi non può darti una consulenza previdenziale veramente neutrale. Welfora non vende prodotti.</p>
+        <h4>Multi-attività lavorative</h4>
+        <p>Gestisce carriere miste con più gestioni diverse — FPLD, Gestione Separata, artigiani/commercianti — in un unico calcolo aggregato.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
         </div>
+        <h4>100% cloud, mobile-ready</h4>
+        <p>Nessuna installazione. Accedi da qualsiasi dispositivo, i dati sono al sicuro su server europei. Perfetto anche in mobilità.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h4>Aggiornamenti normativi</h4>
+        <p>Le regole pensionistiche cambiano ogni anno. SPI viene aggiornato costantemente — il calcolo è sempre allineato alla normativa vigente.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── SERVIZI ─────────────────────────────────────────────── -->
-  <section class="section section--scuro" id="servizi">
-    <div class="container">
-      <div class="text-center mb-48">
-        <p class="eyebrow">I nostri servizi</p>
-        <h2 class="section-title">
-          Quattro modi per <em>agire</em>
-        </h2>
-        <p class="lead" style="margin: 16px auto 0; text-align:center;">
-          Dal report autonomo alla consulenza completa. Scegli il livello che ti serve.
-        </p>
+<!-- HOW IT WORKS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Come funziona</div>
+      <h2>Dalla registrazione al report in pochi minuti</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:820px;margin:0 auto">
+      <div class="fade-up" style="text-align:center;padding:32px 28px">
+        <div style="width:56px;height:56px;background:linear-gradient(135deg,var(--blue),var(--green));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#fff;font-weight:700;font-size:1.2rem;box-shadow:0 4px 16px rgba(30,136,212,0.3)">1</div>
+        <h4 style="font-size:1rem;font-weight:600;margin-bottom:10px;color:var(--navy)">Aggiungi il cliente</h4>
+        <p style="font-size:0.88rem">Inserisci i dati anagrafici e carica l'estratto conto INPS in XML direttamente da MyINPS.</p>
       </div>
-      <div class="services__grid">
-
-        <a href="consulenza.html?servizio=report" class="card service-card">
-          <div class="service-card__tag">Self-service</div>
-          <div class="service-card__icon">📄</div>
-          <h3 class="card__title">Report Pensionistico</h3>
-          <p class="card__body">Inserisci i tuoi dati, il simulatore SPI elabora la tua posizione e genera un report PDF completo con scenari di uscita e proiezioni.</p>
-          <div class="service-card__price">da €49</div>
-        </a>
-
-        <a href="consulenza.html?servizio=video-report" class="card service-card">
-          <div class="service-card__tag">Assistito</div>
-          <div class="service-card__icon">🎥</div>
-          <h3 class="card__title">Video per Report</h3>
-          <p class="card__body">Ricevi un video di 15–20 minuti in cui un consulente Welfora commenta il tuo report, spiega i numeri e risponde alle domande più comuni.</p>
-          <div class="service-card__price">da €89</div>
-        </a>
-
-        <a href="consulenza.html?servizio=video-consulenza" class="card service-card service-card--featured">
-          <div class="service-card__tag">Consigliato</div>
-          <div class="service-card__icon">💬</div>
-          <h3 class="card__title">Video Consulenza</h3>
-          <p class="card__body">Sessione live con un consulente previdenziale certificato. Analizziamo insieme la tua situazione e costruiamo la strategia personalizzata.</p>
-          <div class="service-card__price">da €149</div>
-        </a>
-
-        <a href="consulenza.html?servizio=protocollo" class="card service-card">
-          <div class="service-card__tag">Premium</div>
-          <div class="service-card__icon">🛡️</div>
-          <h3 class="card__title">Protocollo Welfora</h3>
-          <p class="card__body">Percorso completo annuale: analisi, strategia, monitoraggio e aggiornamento al variare delle normative. Per chi vuole certezza.</p>
-          <div class="service-card__price">da €299/anno</div>
-        </a>
-
+      <div class="fade-up" style="text-align:center;padding:32px 28px;border-left:1px solid var(--border);border-right:1px solid var(--border)">
+        <div style="width:56px;height:56px;background:linear-gradient(135deg,var(--blue),var(--green));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#fff;font-weight:700;font-size:1.2rem;box-shadow:0 4px 16px rgba(30,136,212,0.3)">2</div>
+        <h4 style="font-size:1rem;font-weight:600;margin-bottom:10px;color:var(--navy)">Scegli lo scenario</h4>
+        <p style="font-size:0.88rem">Seleziona la forma di pensionamento e SPI calcola date, importi e montante contributivo in tempo reale.</p>
+      </div>
+      <div class="fade-up" style="text-align:center;padding:32px 28px">
+        <div style="width:56px;height:56px;background:linear-gradient(135deg,var(--blue),var(--green));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:#fff;font-weight:700;font-size:1.2rem;box-shadow:0 4px 16px rgba(30,136,212,0.3)">3</div>
+        <h4 style="font-size:1rem;font-weight:600;margin-bottom:10px;color:var(--navy)">Genera il report</h4>
+        <p style="font-size:0.88rem">Esporta un PDF professionale con tutti gli scenari a confronto, pronto da consegnare al cliente.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── PROCESSO ─────────────────────────────────────────────── -->
-  <section class="section section--navy" id="protocollo">
-    <div class="container">
-      <div class="text-center mb-48">
-        <p class="eyebrow">Come funziona</p>
-        <h2 class="section-title" style="color:var(--bianco)">
-          Un processo <em style="color:var(--oro-chiaro)">trasparente</em>
-        </h2>
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-eyebrow">Cosa dicono i consulenti</div>
+      <h2>Chi usa SPI ogni giorno</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card fade-up">
+        <p class="testimonial-text">Finalmente uno strumento che parla la lingua di chi fa consulenza previdenziale. I calcoli con le casse professionali erano un incubo prima di SPI.</p>
+        <div class="testimonial-author"><strong>Marco T.</strong>Consulente del lavoro, Milano</div>
       </div>
-      <div class="process__steps">
-        <div class="process__step">
-          <div class="process__num">1</div>
-          <div class="process__content">
-            <h3>Raccolta dati</h3>
-            <p>Inserisci i tuoi dati contributivi o carica l'estratto INPS. Il sistema acquisisce la tua storia lavorativa completa.</p>
-          </div>
-        </div>
-        <div class="process__step">
-          <div class="process__num">2</div>
-          <div class="process__content">
-            <h3>Simulazione SPI</h3>
-            <p>Il motore di calcolo SPI applica le regole pensionistiche aggiornate e proietta gli scenari di uscita personalizzati per te.</p>
-          </div>
-        </div>
-        <div class="process__step">
-          <div class="process__num">3</div>
-          <div class="process__content">
-            <h3>Analisi e strategia</h3>
-            <p>Un consulente Welfora interpreta i risultati, identifica le finestre di uscita ottimali e costruisce il piano d'azione.</p>
-          </div>
-        </div>
-        <div class="process__step">
-          <div class="process__num">4</div>
-          <div class="process__content">
-            <h3>Report e monitoraggio</h3>
-            <p>Ricevi il report completo. Con il Protocollo Welfora, aggiorniamo la tua strategia al variare delle normative.</p>
-          </div>
-        </div>
+      <div class="testimonial-card fade-up">
+        <p class="testimonial-text">I report PDF che genero sono professionali e i clienti li capiscono. Ho dimezzato il tempo che dedico alle pratiche previdenziali.</p>
+        <div class="testimonial-author"><strong>Giulia F.</strong>CFP, Studio Brescia</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ── TESTIMONIANZE ────────────────────────────────────────── -->
-  <section class="section section--beige" id="testimonianze">
-    <div class="container">
-      <div class="text-center mb-48">
-        <p class="eyebrow">Cosa dicono i clienti</p>
-        <h2 class="section-title">Risultati <em>concreti</em></h2>
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px">
+      <div style="width:28px;height:1px;background:rgba(255,255,255,0.2)"></div>
+      <span style="font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:500">Inizia subito</span>
+      <div style="width:28px;height:1px;background:rgba(255,255,255,0.2)"></div>
+    </div>
+    <h2 class="fade-up" style="color:#fff">14 giorni gratis, senza carta di credito</h2>
+    <p class="fade-up" style="color:rgba(255,255,255,0.65);margin:16px auto 40px;max-width:480px">Attiva la prova gratuita e accedi subito a tutte le funzionalità di SPI. Nessun impegno, nessun costo nascosto.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://app.spitool.it/register" class="btn btn-green btn-lg">Inizia la prova gratuita</a>
+      <a href="calcolatore.html" class="btn btn-outline btn-lg" style="color:#fff;border-color:rgba(255,255,255,0.35)">Prova il calcolatore</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Welfora" height="34" style="filter:brightness(0) invert(1);opacity:0.85" />
+        <p>Software pensionistico professionale per consulenti italiani. Simulazioni INPS, casse professionali e scenari di uscita.</p>
       </div>
-      <div class="testimonials__grid">
-        <div class="card testimonial">
-          <div class="testimonial__stars">★★★★★</div>
-          <p class="testimonial__text">"Non avevo idea di quando sarei potuto andare in pensione. Dopo il report Welfora ho finalmente una data e un piano. Ho scoperto che potevo uscire 18 mesi prima di quanto pensassi."</p>
-          <div class="testimonial__author">
-            <strong>Marco R.</strong>
-            <span>Dipendente privato, 52 anni</span>
-          </div>
-        </div>
-        <div class="card testimonial">
-          <div class="testimonial__stars">★★★★★</div>
-          <p class="testimonial__text">"Da autonoma pensavo di essere in una situazione disperata. La consulenza mi ha mostrato che con piccoli aggiustamenti posso recuperare anni di contributi e uscire a condizioni decenti."</p>
-          <div class="testimonial__author">
-            <strong>Laura M.</strong>
-            <span>Libera professionista, 47 anni</span>
-          </div>
-        </div>
-        <div class="card testimonial">
-          <div class="testimonial__stars">★★★★★</div>
-          <p class="testimonial__text">"Finalmente qualcuno che non cerca di vendermi un prodotto. La consulenza previdenziale pura, senza conflitti di interesse, era quello che cercavo da anni."</p>
-          <div class="testimonial__author">
-            <strong>Giovanni B.</strong>
-            <span>Dirigente pubblico, 58 anni</span>
-          </div>
-        </div>
+      <div class="footer-col">
+        <h5>Prodotto</h5>
+        <ul>
+          <li><a href="calcolatore.html">Calcolatore</a></li>
+          <li><a href="https://app.spitool.it">SPI App</a></li>
+          <li><a href="consulenza.html">Consulenza</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Risorse</h5>
+        <ul>
+          <li><a href="#">Documentazione</a></li>
+          <li><a href="#">Aggiornamenti</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Azienda</h5>
+        <ul>
+          <li><a href="#">Chi siamo</a></li>
+          <li><a href="#">Contatti</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Termini di servizio</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- ── CTA FINALE ───────────────────────────────────────────── -->
-  <section class="section cta-final">
-    <div class="container text-center">
-      <p class="eyebrow">Inizia oggi</p>
-      <h2 class="section-title">
-        Il momento migliore<br>
-        per pianificare <em>è adesso</em>
-      </h2>
-      <p class="lead" style="margin: 20px auto 40px; text-align:center;">
-        Ogni anno che passa senza un piano è un anno perso.<br>
-        Inizia con il simulatore gratuito o prenota una consulenza.
-      </p>
-      <div class="cta-final__actions">
-        <a href="calcolatore.html" class="btn btn--rosso btn--lg">Prova il simulatore →</a>
-        <a href="consulenza.html" class="btn btn--oro btn--lg">Prenota consulenza</a>
-      </div>
+    <div class="footer-bottom">
+      <span>© 2025 Welfora · SPI Sistema Pensionistico Integrato</span>
+      <span>spitool.it</span>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ── FOOTER ───────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo">Wel<span>fora</span></div>
-          <p class="footer__tagline">Pianificazione previdenziale professionale e indipendente. Nessun prodotto da vendere, solo il tuo interesse.</p>
-        </div>
-        <div>
-          <div class="footer__heading">Servizi</div>
-          <ul class="footer__links">
-            <li><a href="consulenza.html?servizio=report">Report Pensionistico</a></li>
-            <li><a href="consulenza.html?servizio=video-report">Video per Report</a></li>
-            <li><a href="consulenza.html?servizio=video-consulenza">Video Consulenza</a></li>
-            <li><a href="consulenza.html?servizio=protocollo">Protocollo Welfora</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__heading">Strumenti</div>
-          <ul class="footer__links">
-            <li><a href="calcolatore.html">Simulatore SPI</a></li>
-            <li><a href="#dati">Dati previdenziali</a></li>
-            <li><a href="#protocollo">Come funziona</a></li>
-            <li><a href="consulenza.html">Contatti</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span class="footer__copy">© 2026 Welfora — Tutti i diritti riservati</span>
-        <span class="footer__legal">
-          <a href="#">Privacy Policy</a> · <a href="#">Cookie Policy</a> · <a href="#">Note legali</a>
-        </span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

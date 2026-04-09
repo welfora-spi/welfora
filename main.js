@@ -1,51 +1,68 @@
-/* ═══════════════════════════════════════════════════════════════
-   main.js — Welfora shared JS
-   ═══════════════════════════════════════════════════════════════ */
+/* ── WELFORA — main.js ── */
 
-// ── Config ───────────────────────────────────────────────────────
-const API_BASE = 'https://app.spitool.it/api/welfora';
-
-// ── Nav burger (mobile) ──────────────────────────────────────────
-const burger = document.getElementById('burger');
-const navMobile = document.getElementById('navMobile');
-if (burger && navMobile) {
-  burger.addEventListener('click', () => {
-    navMobile.classList.toggle('open');
-  });
-  // Chiudi cliccando fuori
-  document.addEventListener('click', (e) => {
-    if (!burger.contains(e.target) && !navMobile.contains(e.target)) {
-      navMobile.classList.remove('open');
-    }
-  });
-}
-
-// ── Nav scroll opacity ───────────────────────────────────────────
-const nav = document.querySelector('.nav');
-if (nav) {
+// Header scroll effect
+const header = document.querySelector('.site-header');
+if (header) {
   window.addEventListener('scroll', () => {
-    nav.style.borderBottomColor = window.scrollY > 40
-      ? 'rgba(201,168,76,0.25)'
-      : 'rgba(201,168,76,0.15)';
+    header.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 }
 
-// ── Pre-selezione servizio da URL param ──────────────────────────
-// Usato da consulenza.html per pre-selezionare il servizio
-function getParam(name) {
-  return new URLSearchParams(window.location.search).get(name);
-}
-
-// ── Helper API call ──────────────────────────────────────────────
-async function apiCall(endpoint, data) {
-  const res = await fetch(`${API_BASE}${endpoint}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks  = document.querySelector('.nav-links');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
   });
-  if (!res.ok) throw new Error(`API error ${res.status}`);
-  return res.json();
 }
 
-// Esporta per uso nei file specifici
-window.WelforaAPI = { base: API_BASE, call: apiCall, getParam };
+// Active nav link
+const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a').forEach(a => {
+  const href = a.getAttribute('href') || '';
+  if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+    a.classList.add('active');
+  }
+});
+
+// Fade-up on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('in-view');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Animated counters
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const isFloat = target % 1 !== 0;
+  const duration = 1600;
+  const start = performance.now();
+  const update = now => {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    const val = target * ease;
+    el.textContent = isFloat ? val.toFixed(1) : Math.round(val).toLocaleString('it-IT');
+    if (t < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+// Utilities
+function formatEuro(n) {
+  return new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
+}
+function formatNum(n) {
+  return new Intl.NumberFormat('it-IT', { maximumFractionDigits: 1 }).format(n);
+}

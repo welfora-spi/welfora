@@ -3,367 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simulatore Pensionistico SPI — Welfora</title>
-  <meta name="description" content="Calcola la tua pensione stimata con il simulatore SPI di Welfora. Scenari di uscita personalizzati basati sulla tua storia contributiva." />
+  <title>Calcolatore Pensione — Welfora SPI</title>
+  <meta name="description" content="Stima gratuita della tua pensione INPS. Inserisci i tuoi dati e scopri l'importo stimato con il calcolatore Welfora SPI." />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="calcolatore.css" />
 </head>
 <body>
 
-  <!-- ── NAV ──────────────────────────────────────────────────── -->
-  <nav class="nav">
-    <div class="container">
-      <div class="nav__inner">
-        <a href="index.html" class="nav__logo">Wel<span>fora</span></a>
-        <ul class="nav__links">
-          <li><a href="index.html#servizi">Servizi</a></li>
-          <li><a href="index.html#dati">Dati</a></li>
-          <li><a href="calcolatore.html" style="color:var(--oro)">Simulatore</a></li>
-          <li><a href="index.html#protocollo">Protocollo</a></li>
-          <li><a href="consulenza.html" class="nav__cta">Inizia ora</a></li>
-        </ul>
-        <button class="nav__burger" id="burger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-  <div class="nav__mobile" id="navMobile">
-    <a href="index.html#servizi">Servizi</a>
-    <a href="index.html#dati">Dati</a>
-    <a href="calcolatore.html">Simulatore</a>
-    <a href="index.html#protocollo">Protocollo</a>
-    <a href="consulenza.html" class="btn btn--rosso" style="width:fit-content">Inizia ora</a>
+<header class="site-header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Welfora" height="36" style="display:block" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calcolatore.html">Calcolatore</a></li>
+        <li><a href="consulenza.html">Consulenza</a></li>
+        <li><a href="https://app.spitool.it" target="_blank">
+          <span class="btn btn-primary" style="padding:9px 22px;font-size:0.82rem;">Accedi a SPI</span>
+        </a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
   </div>
+</header>
 
-  <!-- ── HEADER PAGINA ─────────────────────────────────────────── -->
-  <div class="calc-header">
-    <div class="container">
-      <p class="eyebrow">Simulatore SPI</p>
-      <h1 class="section-title">Calcola la tua <em>pensione stimata</em></h1>
-      <p class="lead">
-        Inserisci i tuoi dati contributivi e ottieni scenari di uscita personalizzati.
-        Il calcolo è orientativo — per una pianificazione completa prenota una consulenza.
-      </p>
-      <div class="calc-header__disclaimer">
-        <span>⚠️</span>
-        I risultati sono stime basate sulle regole INPS vigenti. Non costituiscono consulenza previdenziale.
+<!-- HERO -->
+<section class="calc-hero">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px">
+      <div style="width:28px;height:1px;background:rgba(30,136,212,0.5)"></div>
+      <span style="font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(30,136,212,0.8);font-weight:500">Simulazione gratuita</span>
+      <div style="width:28px;height:1px;background:rgba(30,136,212,0.5)"></div>
+    </div>
+    <h1>Calcolatore pensione</h1>
+    <p>Una stima orientativa basata sui parametri INPS vigenti. Per un'analisi completa con il tuo estratto conto, usa SPI.</p>
+  </div>
+</section>
+
+<!-- LAYOUT -->
+<div class="container">
+  <div class="calc-layout">
+
+    <!-- FORM PANEL -->
+    <div class="calc-panel">
+      <div class="calc-panel-header">
+        <h3 style="color:#fff;font-weight:400">I tuoi dati</h3>
+      </div>
+      <div class="calc-panel-body">
+        <form id="calcForm" novalidate>
+
+          <div class="form-group">
+            <label class="form-label" for="anno_nascita">Anno di nascita</label>
+            <input class="form-control" type="number" id="anno_nascita" name="anno_nascita"
+              placeholder="es. 1975" min="1940" max="2000" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="anno_inizio">Anno inizio lavoro</label>
+              <input class="form-control" type="number" id="anno_inizio" name="anno_inizio"
+                placeholder="es. 2000" min="1960" max="2025" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="gestione">Gestione INPS</label>
+              <select class="form-control" id="gestione" name="gestione" required>
+                <option value="">Seleziona…</option>
+                <option value="FPLD">Dipendenti privati (FPLD)</option>
+                <option value="GS">Gestione Separata</option>
+                <option value="artigiani">Artigiani</option>
+                <option value="commercianti">Commercianti</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reddito_medio">Reddito annuo lordo medio (€)</label>
+            <input class="form-control" type="number" id="reddito_medio" name="reddito_medio"
+              placeholder="es. 35000" min="5000" step="1000" required />
+            <div class="form-hint">Stima media degli ultimi anni</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="scenario">Scenario di pensionamento</label>
+            <select class="form-control" id="scenario" name="scenario" required>
+              <option value="">Seleziona…</option>
+              <option value="vecchiaia">Vecchiaia (67 anni + 20 anni contributi)</option>
+              <option value="anticipata_m">Anticipata uomo (42 anni e 10 mesi)</option>
+              <option value="anticipata_f">Anticipata donna (41 anni e 10 mesi)</option>
+              <option value="quota103">Quota 103 (62 anni + 41 anni)</option>
+            </select>
+          </div>
+
+          <button class="calc-btn" id="calcBtn" type="submit">Calcola stima pensione</button>
+
+          <div style="margin-top:16px;font-size:0.76rem;color:var(--text-light);line-height:1.6;text-align:center">
+            Simulazione orientativa · non costituisce consulenza previdenziale
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- RISULTATO -->
+    <div class="result-panel">
+
+      <div class="result-empty" id="resultEmpty">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" color="#1e3a6e" style="opacity:0.18;margin-bottom:16px">
+          <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+        <p style="color:var(--text-light)">Compila il modulo e premi<br/><strong style="color:var(--navy)">Calcola</strong> per vedere la stima</p>
+      </div>
+
+      <div class="loading-state" id="resultLoading">
+        <div class="spinner"></div>
+        <p style="color:var(--text-light);font-size:0.9rem">Elaborazione in corso…</p>
+      </div>
+
+      <div class="result-content" id="resultContent">
+        <div class="result-header" style="background:linear-gradient(135deg,var(--navy),var(--navy-mid))">
+          <h2 id="rh-scenario">Pensione di vecchiaia</h2>
+          <div class="result-meta" id="rh-meta">Stima calcolata su dati dichiarati</div>
+        </div>
+        <div class="result-body">
+          <div class="result-kpi-row">
+            <div class="result-kpi">
+              <span class="result-kpi-value" id="kpi-importo">—</span>
+              <span class="result-kpi-label">Importo mensile lordo</span>
+            </div>
+            <div class="result-kpi">
+              <span class="result-kpi-value" id="kpi-eta">—</span>
+              <span class="result-kpi-label">Età di uscita</span>
+            </div>
+            <div class="result-kpi">
+              <span class="result-kpi-value" id="kpi-anni">—</span>
+              <span class="result-kpi-label">Anni al pensionamento</span>
+            </div>
+          </div>
+
+          <div class="result-section-title">Dettaglio calcolo</div>
+          <div class="result-rows">
+            <div class="result-row">
+              <span class="result-row-label">Contribuzione stimata</span>
+              <span class="result-row-value" id="det-contribuzione">—</span>
+            </div>
+            <div class="result-row">
+              <span class="result-row-label">Anni di contributi al pensionamento</span>
+              <span class="result-row-value" id="det-anni-contrib">—</span>
+            </div>
+            <div class="result-row">
+              <span class="result-row-label">Montante contributivo stimato</span>
+              <span class="result-row-value gold" id="det-montante">—</span>
+            </div>
+            <div class="result-row">
+              <span class="result-row-label">Coefficiente di trasformazione</span>
+              <span class="result-row-value" id="det-coeff">—</span>
+            </div>
+            <div class="result-row">
+              <span class="result-row-label">Pensione annua lorda stimata</span>
+              <span class="result-row-value" id="det-annua">—</span>
+            </div>
+          </div>
+
+          <div class="result-disclaimer">
+            ⚠️ Stima orientativa basata su dati dichiarati e parametri INPS vigenti. Non tiene conto di contribuzioni pregresse, buchi contributivi o norme speciali. Per un'analisi precisa utilizza <a href="https://app.spitool.it" style="color:var(--blue);font-weight:500">SPI con il tuo estratto conto INPS</a>.
+          </div>
+
+          <div class="result-actions">
+            <a href="https://app.spitool.it/register" class="btn btn-primary">Analisi completa con SPI</a>
+            <a href="consulenza.html" class="btn btn-outline">Prenota consulenza</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer" style="margin-top:80px">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© 2025 Welfora · SPI Sistema Pensionistico Integrato</span>
+      <div style="display:flex;gap:24px">
+        <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem">Home</a>
+        <a href="consulenza.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem">Consulenza</a>
+        <a href="#" style="color:rgba(255,255,255,0.5);font-size:0.85rem">Privacy</a>
       </div>
     </div>
   </div>
+</footer>
 
-  <!-- ── MAIN LAYOUT ───────────────────────────────────────────── -->
-  <main class="calc-main">
-    <div class="container">
-      <div class="calc-layout">
+<script src="main.js"></script>
+<script>
+const COEFFICIENTI = { 62:0.04696,63:0.04864,64:0.05012,65:0.05159,66:0.05294,67:0.05443,68:0.05560,69:0.05706,70:0.05863,71:0.06000 };
+const ALIQUOTE = { FPLD:0.33, GS:0.2572, artigiani:0.24, commercianti:0.2448 };
+const SCENARI_LABEL = { vecchiaia:'Pensione di vecchiaia', anticipata_m:'Pensione anticipata (uomo)', anticipata_f:'Pensione anticipata (donna)', quota103:'Quota 103' };
 
-        <!-- ── FORM ─────────────────────────────────────────────── -->
-        <div class="calc-form-panel">
+function getEtaUscita(scenario, annoNascita, annoInizio) {
+  switch (scenario) {
+    case 'vecchiaia':    return { eta: 67, anniContrib: 67 - (annoInizio - annoNascita) };
+    case 'anticipata_m': return { eta: null, anniContrib: 42.83 };
+    case 'anticipata_f': return { eta: null, anniContrib: 41.83 };
+    case 'quota103':     return { eta: 62, anniContrib: 41 };
+    default:             return { eta: 67, anniContrib: 20 };
+  }
+}
 
-          <!-- Sezione 1: Anagrafica -->
-          <div class="calc-section">
-            <div class="calc-section__title">
-              <span class="calc-section__num">01</span>
-              Dati anagrafici
-            </div>
-            <div class="calc-grid-2">
-              <div class="form-group">
-                <label for="eta">Età attuale</label>
-                <input type="number" id="eta" min="18" max="80" placeholder="es. 45" />
-              </div>
-              <div class="form-group">
-                <label for="tipo">Tipo lavoratore</label>
-                <select id="tipo">
-                  <option value="">— Seleziona —</option>
-                  <option value="dipendente">Dipendente privato</option>
-                  <option value="dipendente-pub">Dipendente pubblico</option>
-                  <option value="autonomo">Autonomo / artigiano</option>
-                  <option value="commerciante">Commerciante</option>
-                  <option value="professionista">Libero professionista</option>
-                </select>
-              </div>
-            </div>
-          </div>
+function calcola(data) {
+  const anno    = parseInt(data.anno_nascita);
+  const inizio  = parseInt(data.anno_inizio);
+  const reddito = parseFloat(data.reddito_medio);
+  const aliquota       = ALIQUOTE[data.gestione] || 0.33;
+  const contributoAnnuo = reddito * aliquota;
+  let { eta, anniContrib } = getEtaUscita(data.scenario, anno, inizio);
+  if (!eta) {
+    const anniLavoratiAd2025 = 2025 - inizio;
+    const anniMancanti = Math.max(0, anniContrib - anniLavoratiAd2025);
+    eta = (2025 - anno) + anniMancanti;
+  }
+  eta = Math.round(eta);
+  const anniContribFinali = Math.round(anniContrib);
+  const anniAllaPensione  = Math.max(0, eta - (2025 - anno));
+  const tassoCrescita = 0.015;
+  let montante = 0;
+  const anniGiaLavorati = Math.min(2025 - inizio, anniContribFinali);
+  const anniRestanti    = Math.max(0, anniContribFinali - anniGiaLavorati);
+  for (let i = 0; i < anniGiaLavorati; i++) montante = (montante + contributoAnnuo) * (1 + tassoCrescita);
+  for (let i = 0; i < anniRestanti;   i++) montante = (montante + contributoAnnuo) * (1 + tassoCrescita);
+  const coeffEta       = COEFFICIENTI[Math.min(Math.max(eta, 62), 71)] || 0.05443;
+  const pensioneLorda  = montante * coeffEta;
+  const pensioneMensile = pensioneLorda / 13;
+  return { scenario: data.scenario, eta, anniAllaPensione, anniContrib: anniContribFinali, contributoAnnuo, montante, coeffEta, pensioneLorda, pensioneMensile };
+}
 
-          <!-- Sezione 2: Contributi -->
-          <div class="calc-section">
-            <div class="calc-section__title">
-              <span class="calc-section__num">02</span>
-              Storia contributiva
-            </div>
-            <div class="calc-grid-2">
-              <div class="form-group">
-                <label for="anni-contributi">Anni di contributi versati</label>
-                <input type="number" id="anni-contributi" min="0" max="50" placeholder="es. 20" />
-              </div>
-              <div class="form-group">
-                <label for="reddito">Reddito annuo lordo (€)</label>
-                <input type="number" id="reddito" min="0" placeholder="es. 35000" />
-              </div>
-            </div>
-            <div class="calc-grid-2 mt-16">
-              <div class="form-group">
-                <label for="montante">Montante contributivo attuale (€) <span class="label-opt">opzionale</span></label>
-                <input type="number" id="montante" min="0" placeholder="dall'estratto INPS" />
-              </div>
-              <div class="form-group">
-                <label for="aliquota">Aliquota contributiva (%)</label>
-                <select id="aliquota">
-                  <option value="33">33% — Dipendente INPS</option>
-                  <option value="25">25% — Artigiani/Commercianti</option>
-                  <option value="26.23">26,23% — Gestione separata</option>
-                  <option value="24">24% — Liberi professionisti</option>
-                </select>
-              </div>
-            </div>
-          </div>
+const form       = document.getElementById('calcForm');
+const btnCalc    = document.getElementById('calcBtn');
+const resEmpty   = document.getElementById('resultEmpty');
+const resLoading = document.getElementById('resultLoading');
+const resContent = document.getElementById('resultContent');
 
-          <!-- Sezione 3: Obiettivo -->
-          <div class="calc-section">
-            <div class="calc-section__title">
-              <span class="calc-section__num">03</span>
-              Obiettivo di uscita
-            </div>
-            <div class="calc-grid-2">
-              <div class="form-group">
-                <label for="eta-uscita">Età obiettivo di pensionamento</label>
-                <input type="number" id="eta-uscita" min="55" max="75" placeholder="es. 67" />
-              </div>
-              <div class="form-group">
-                <label for="spesa-mensile">Spesa mensile desiderata (€)</label>
-                <input type="number" id="spesa-mensile" min="0" placeholder="es. 1800" />
-              </div>
-            </div>
-            <div class="calc-grid-2 mt-16">
-              <div class="form-group">
-                <label for="risparmi">Risparmi/investimenti attuali (€) <span class="label-opt">opzionale</span></label>
-                <input type="number" id="risparmi" min="0" placeholder="es. 50000" />
-              </div>
-              <div class="form-group">
-                <label for="rivalutazione">Crescita annua stimata (%)</label>
-                <select id="rivalutazione">
-                  <option value="1.5">1,5% — Prudente</option>
-                  <option value="2.5" selected>2,5% — Moderata</option>
-                  <option value="3.5">3,5% — Ottimistica</option>
-                </select>
-              </div>
-            </div>
-          </div>
+function showState(state) {
+  resEmpty.style.display   = state === 'empty'   ? 'flex'  : 'none';
+  resLoading.style.display = state === 'loading' ? 'flex'  : 'none';
+  resContent.style.display = state === 'result'  ? 'block' : 'none';
+}
+showState('empty');
 
-          <button class="btn btn--rosso btn--lg calc-submit" id="btnCalcola">
-            Calcola scenari →
-          </button>
+function renderResult(r) {
+  document.getElementById('rh-scenario').textContent = SCENARI_LABEL[r.scenario] || 'Simulazione pensione';
+  document.getElementById('rh-meta').textContent     = `Stima per età di uscita ${r.eta} anni · calcolo orientativo`;
+  document.getElementById('kpi-importo').textContent = formatEuro(r.pensioneMensile);
+  document.getElementById('kpi-eta').textContent     = r.eta + ' anni';
+  document.getElementById('kpi-anni').textContent    = r.anniAllaPensione > 0 ? r.anniAllaPensione + ' anni' : 'Già maturata';
+  document.getElementById('det-contribuzione').textContent  = formatEuro(r.contributoAnnuo) + ' / anno';
+  document.getElementById('det-anni-contrib').textContent   = r.anniContrib + ' anni';
+  document.getElementById('det-montante').textContent       = formatEuro(r.montante);
+  document.getElementById('det-coeff').textContent          = (r.coeffEta * 100).toFixed(3) + '%';
+  document.getElementById('det-annua').textContent          = formatEuro(r.pensioneLorda);
+}
 
-        </div>
-
-        <!-- ── RISULTATI ─────────────────────────────────────────── -->
-        <div class="calc-results-panel" id="risultati">
-
-          <!-- Stato iniziale -->
-          <div class="calc-results__empty" id="emptyState">
-            <div class="calc-results__empty-icon">📊</div>
-            <p>Inserisci i tuoi dati e clicca <strong>"Calcola scenari"</strong> per vedere le proiezioni personalizzate.</p>
-          </div>
-
-          <!-- Risultati (hidden inizialmente) -->
-          <div class="calc-results__content" id="resultsContent" style="display:none">
-
-            <!-- Riepilogo posizione attuale -->
-            <div class="result-block result-block--summary">
-              <div class="result-block__label">La tua posizione oggi</div>
-              <div class="result-summary__grid">
-                <div class="result-summary__item">
-                  <div class="result-summary__val" id="resMontante">—</div>
-                  <div class="result-summary__key">Montante contributivo stimato</div>
-                </div>
-                <div class="result-summary__item">
-                  <div class="result-summary__val" id="resAnniMancanti">—</div>
-                  <div class="result-summary__key">Anni all'obiettivo di uscita</div>
-                </div>
-                <div class="result-summary__item">
-                  <div class="result-summary__val" id="resContribFuturi">—</div>
-                  <div class="result-summary__key">Contributi futuri stimati</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Scenari -->
-            <div class="result-block__label mt-24">Scenari di pensionamento</div>
-
-            <!-- Scenario A: Vecchiaia ordinaria -->
-            <div class="result-scenario" id="scenarioA">
-              <div class="result-scenario__header">
-                <div>
-                  <div class="result-scenario__tag">Scenario A</div>
-                  <div class="result-scenario__name">Pensione di vecchiaia</div>
-                </div>
-                <div class="result-scenario__eta" id="sA-eta">—</div>
-              </div>
-              <div class="result-scenario__grid">
-                <div class="result-kv">
-                  <span class="result-kv__k">Età uscita</span>
-                  <span class="result-kv__v" id="sA-etaVal">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Anni contributi</span>
-                  <span class="result-kv__v" id="sA-anni">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Pensione mensile lorda</span>
-                  <span class="result-kv__v result-kv__v--big" id="sA-pensione">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Tasso sostituzione</span>
-                  <span class="result-kv__v" id="sA-tasso">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Gap mensile</span>
-                  <span class="result-kv__v" id="sA-gap">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Sostenibilità</span>
-                  <span class="result-kv__v" id="sA-sost">—</span>
-                </div>
-              </div>
-              <div class="result-scenario__bar">
-                <div class="result-scenario__bar-fill" id="sA-bar"></div>
-              </div>
-            </div>
-
-            <!-- Scenario B: Obiettivo utente -->
-            <div class="result-scenario" id="scenarioB">
-              <div class="result-scenario__header">
-                <div>
-                  <div class="result-scenario__tag result-scenario__tag--user">Scenario B</div>
-                  <div class="result-scenario__name">Il tuo obiettivo</div>
-                </div>
-                <div class="result-scenario__eta" id="sB-eta">—</div>
-              </div>
-              <div class="result-scenario__grid">
-                <div class="result-kv">
-                  <span class="result-kv__k">Età uscita</span>
-                  <span class="result-kv__v" id="sB-etaVal">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Anni contributi</span>
-                  <span class="result-kv__v" id="sB-anni">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Pensione mensile lorda</span>
-                  <span class="result-kv__v result-kv__v--big" id="sB-pensione">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Tasso sostituzione</span>
-                  <span class="result-kv__v" id="sB-tasso">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Gap mensile</span>
-                  <span class="result-kv__v" id="sB-gap">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Requisiti pensione anticipata</span>
-                  <span class="result-kv__v" id="sB-requisiti">—</span>
-                </div>
-              </div>
-              <div class="result-scenario__bar">
-                <div class="result-scenario__bar-fill" id="sB-bar"></div>
-              </div>
-            </div>
-
-            <!-- Scenario C: Anticipata (42a+10m / 41a+10m) -->
-            <div class="result-scenario" id="scenarioC">
-              <div class="result-scenario__header">
-                <div>
-                  <div class="result-scenario__tag result-scenario__tag--anticipata">Scenario C</div>
-                  <div class="result-scenario__name">Pensione anticipata</div>
-                </div>
-                <div class="result-scenario__eta" id="sC-eta">—</div>
-              </div>
-              <div class="result-scenario__grid">
-                <div class="result-kv">
-                  <span class="result-kv__k">Età uscita stimata</span>
-                  <span class="result-kv__v" id="sC-etaVal">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Contributi richiesti</span>
-                  <span class="result-kv__v" id="sC-anni">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Pensione mensile lorda</span>
-                  <span class="result-kv__v result-kv__v--big" id="sC-pensione">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Tasso sostituzione</span>
-                  <span class="result-kv__v" id="sC-tasso">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Gap mensile</span>
-                  <span class="result-kv__v" id="sC-gap">—</span>
-                </div>
-                <div class="result-kv">
-                  <span class="result-kv__k">Anni mancanti ai requisiti</span>
-                  <span class="result-kv__v" id="sC-mancanti">—</span>
-                </div>
-              </div>
-              <div class="result-scenario__bar">
-                <div class="result-scenario__bar-fill" id="sC-bar"></div>
-              </div>
-            </div>
-
-            <!-- Raccomandazione -->
-            <div class="result-recommendation" id="raccomandazione">
-              <div class="result-recommendation__icon">💡</div>
-              <div>
-                <div class="result-recommendation__title">Analisi Welfora</div>
-                <p class="result-recommendation__text" id="recText">—</p>
-              </div>
-            </div>
-
-            <!-- CTA consulenza -->
-            <div class="result-cta">
-              <p>Vuoi una pianificazione completa con un consulente certificato?</p>
-              <a href="consulenza.html" class="btn btn--rosso">Prenota consulenza →</a>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </main>
-
-  <!-- ── FOOTER ───────────────────────────────────────────────── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo">Wel<span>fora</span></div>
-          <p class="footer__tagline">Pianificazione previdenziale professionale e indipendente.</p>
-        </div>
-        <div>
-          <div class="footer__heading">Servizi</div>
-          <ul class="footer__links">
-            <li><a href="consulenza.html?servizio=report">Report Pensionistico</a></li>
-            <li><a href="consulenza.html?servizio=video-consulenza">Video Consulenza</a></li>
-            <li><a href="consulenza.html?servizio=protocollo">Protocollo Welfora</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer__heading">Note legali</div>
-          <ul class="footer__links">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Cookie Policy</a></li>
-            <li><a href="#">Disclaimer</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span class="footer__copy">© 2026 Welfora — I risultati del simulatore sono indicativi e non costituiscono consulenza previdenziale.</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="main.js"></script>
-  <script src="calcolatore.js"></script>
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(form));
+  if (!data.anno_nascita || !data.anno_inizio || !data.reddito_medio || !data.gestione || !data.scenario) {
+    alert('Compila tutti i campi per procedere.');
+    return;
+  }
+  showState('loading');
+  btnCalc.disabled = true;
+  setTimeout(() => {
+    try { renderResult(calcola(data)); showState('result'); }
+    catch(err) { showState('empty'); console.error(err); }
+    btnCalc.disabled = false;
+  }, 900);
+});
+</script>
 </body>
 </html>
