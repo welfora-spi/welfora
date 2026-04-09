@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prenota Consulenza — Welfora</title>
+  <meta name="description" content="Prenota una consulenza previdenziale con Welfora. Report, video consulenza o percorso completo. Risposta entro 24 ore." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="consulenza.css" />
+</head>
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Wel<span>fora</span></a>
+        <ul class="nav__links">
+          <li><a href="index.html#servizi">Servizi</a></li>
+          <li><a href="index.html#dati">Dati</a></li>
+          <li><a href="calcolatore.html">Simulatore</a></li>
+          <li><a href="index.html#protocollo">Protocollo</a></li>
+          <li><a href="consulenza.html" class="nav__cta">Inizia ora</a></li>
+        </ul>
+        <button class="nav__burger" id="burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="navMobile">
+    <a href="index.html#servizi">Servizi</a>
+    <a href="index.html#dati">Dati</a>
+    <a href="calcolatore.html">Simulatore</a>
+    <a href="index.html#protocollo">Protocollo</a>
+    <a href="consulenza.html" class="btn btn--rosso" style="width:fit-content">Inizia ora</a>
+  </div>
+
+  <!-- ── HEADER ────────────────────────────────────────────────── -->
+  <div class="cons-header">
+    <div class="container">
+      <p class="eyebrow">Consulenza previdenziale</p>
+      <h1 class="section-title">Inizia con <em>il servizio giusto</em></h1>
+      <p class="lead">
+        Seleziona il servizio, lasciaci i tuoi dati.
+        Ti ricontattiamo entro 24 ore lavorative.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── MAIN ──────────────────────────────────────────────────── -->
+  <main class="cons-main">
+    <div class="container">
+      <div class="cons-layout">
+
+        <!-- ── SELEZIONE SERVIZIO ─────────────────────────────── -->
+        <div class="cons-left">
+
+          <div class="cons-step">
+            <div class="cons-step__num">01</div>
+            <div class="cons-step__label">Scegli il servizio</div>
+          </div>
+
+          <div class="service-options" id="serviceOptions">
+
+            <label class="service-option" data-servizio="report">
+              <input type="radio" name="servizio" value="report" />
+              <div class="service-option__inner">
+                <div class="service-option__top">
+                  <div class="service-option__icon">📄</div>
+                  <div class="service-option__price">€49</div>
+                </div>
+                <div class="service-option__name">Report Pensionistico</div>
+                <div class="service-option__desc">Report PDF completo con scenari di uscita personalizzati basati sui tuoi dati INPS.</div>
+                <ul class="service-option__features">
+                  <li>✓ Simulazione SPI completa</li>
+                  <li>✓ 3 scenari di uscita</li>
+                  <li>✓ PDF scaricabile</li>
+                  <li>✓ Consegna in 48h</li>
+                </ul>
+              </div>
+            </label>
+
+            <label class="service-option" data-servizio="video-report">
+              <input type="radio" name="servizio" value="video-report" />
+              <div class="service-option__inner">
+                <div class="service-option__top">
+                  <div class="service-option__icon">🎥</div>
+                  <div class="service-option__price">€89</div>
+                </div>
+                <div class="service-option__name">Video per Report</div>
+                <div class="service-option__desc">Report PDF + video di commento personalizzato (15–20 min) con un consulente Welfora.</div>
+                <ul class="service-option__features">
+                  <li>✓ Report SPI completo</li>
+                  <li>✓ Video spiegazione personalizzata</li>
+                  <li>✓ Risposte alle domande più comuni</li>
+                  <li>✓ Consegna in 72h</li>
+                </ul>
+              </div>
+            </label>
+
+            <label class="service-option service-option--featured" data-servizio="video-consulenza">
+              <input type="radio" name="servizio" value="video-consulenza" />
+              <div class="service-option__badge">Più scelto</div>
+              <div class="service-option__inner">
+                <div class="service-option__top">
+                  <div class="service-option__icon">💬</div>
+                  <div class="service-option__price">€149</div>
+                </div>
+                <div class="service-option__name">Video Consulenza</div>
+                <div class="service-option__desc">Sessione live con un consulente certificato. Analisi completa e strategia personalizzata.</div>
+                <ul class="service-option__features">
+                  <li>✓ Sessione video 60 min</li>
+                  <li>✓ Report SPI incluso</li>
+                  <li>✓ Piano d'azione scritto</li>
+                  <li>✓ 1 follow-up email gratuito</li>
+                </ul>
+              </div>
+            </label>
+
+            <label class="service-option" data-servizio="protocollo">
+              <input type="radio" name="servizio" value="protocollo" />
+              <div class="service-option__inner">
+                <div class="service-option__top">
+                  <div class="service-option__icon">🛡️</div>
+                  <div class="service-option__price">€299<span>/anno</span></div>
+                </div>
+                <div class="service-option__name">Protocollo Welfora</div>
+                <div class="service-option__desc">Percorso completo annuale con monitoraggio continuo e aggiornamenti al variare delle normative.</div>
+                <ul class="service-option__features">
+                  <li>✓ Tutto della Video Consulenza</li>
+                  <li>✓ Monitoraggio normative 12 mesi</li>
+                  <li>✓ 2 sessioni annuali di aggiornamento</li>
+                  <li>✓ Supporto email prioritario</li>
+                </ul>
+              </div>
+            </label>
+
+          </div>
+
+          <!-- Garanzie -->
+          <div class="cons-garanzie">
+            <div class="cons-garanzia">
+              <span class="cons-garanzia__icon">🔒</span>
+              <span>Nessun conflitto di interesse — non vendiamo prodotti finanziari</span>
+            </div>
+            <div class="cons-garanzia">
+              <span class="cons-garanzia__icon">⚡</span>
+              <span>Risposta entro 24 ore lavorative</span>
+            </div>
+            <div class="cons-garanzia">
+              <span class="cons-garanzia__icon">🎯</span>
+              <span>Consulenti previdenziali certificati</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── FORM CONTATTO ──────────────────────────────────── -->
+        <div class="cons-right">
+
+          <div class="cons-step">
+            <div class="cons-step__num">02</div>
+            <div class="cons-step__label">I tuoi dati</div>
+          </div>
+
+          <div class="cons-form-card" id="formCard">
+
+            <!-- Servizio selezionato (preview) -->
+            <div class="cons-form__servizio-preview" id="servizioPreview" style="display:none">
+              <span class="cons-form__servizio-label">Servizio selezionato:</span>
+              <span class="cons-form__servizio-nome" id="servizioNome">—</span>
+              <span class="cons-form__servizio-prezzo" id="servizioPrezzo">—</span>
+            </div>
+
+            <div id="formContent">
+
+              <div class="form-group">
+                <label for="nome">Nome e cognome *</label>
+                <input type="text" id="nome" placeholder="Mario Rossi" />
+              </div>
+
+              <div class="cons-form-grid">
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" placeholder="mario@email.it" />
+                </div>
+                <div class="form-group">
+                  <label for="telefono">Telefono</label>
+                  <input type="tel" id="telefono" placeholder="+39 333 123 4567" />
+                </div>
+              </div>
+
+              <div class="cons-form-grid">
+                <div class="form-group">
+                  <label for="eta-form">Età</label>
+                  <input type="number" id="eta-form" min="18" max="80" placeholder="es. 45" />
+                </div>
+                <div class="form-group">
+                  <label for="tipo-form">Tipo lavoratore</label>
+                  <select id="tipo-form">
+                    <option value="">— Seleziona —</option>
+                    <option value="dipendente">Dipendente privato</option>
+                    <option value="dipendente-pub">Dipendente pubblico</option>
+                    <option value="autonomo">Autonomo / artigiano</option>
+                    <option value="commerciante">Commerciante</option>
+                    <option value="professionista">Libero professionista</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="situazione">Descrivi brevemente la tua situazione</label>
+                <textarea id="situazione" rows="4" placeholder="Es: ho 48 anni, 22 anni di contributi, vorrei capire quando posso andare in pensione e con quanto..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="come-hai-trovato">Come ci hai trovato?</label>
+                <select id="come-hai-trovato">
+                  <option value="">— Seleziona —</option>
+                  <option value="google">Google / ricerca web</option>
+                  <option value="passaparola">Passaparola</option>
+                  <option value="social">Social media</option>
+                  <option value="consulente">Consigliato da consulente</option>
+                  <option value="altro">Altro</option>
+                </select>
+              </div>
+
+              <div class="cons-privacy">
+                <label class="cons-privacy__label">
+                  <input type="checkbox" id="privacy" />
+                  <span>Ho letto e accetto la <a href="#">Privacy Policy</a>. Acconsento al trattamento dei miei dati per ricevere informazioni sui servizi Welfora. *</span>
+                </label>
+              </div>
+
+              <button class="btn btn--rosso btn--lg cons-submit" id="btnInvia">
+                Invia richiesta →
+              </button>
+
+              <p class="cons-form__note">
+                * Campi obbligatori. Ti risponderemo entro 24 ore lavorative all'indirizzo email fornito.
+              </p>
+
+            </div>
+
+            <!-- Stato successo (hidden) -->
+            <div class="cons-success" id="successState" style="display:none">
+              <div class="cons-success__icon">✅</div>
+              <h3 class="cons-success__title">Richiesta inviata!</h3>
+              <p class="cons-success__text">
+                Grazie per averci contattato. Ti risponderemo entro <strong>24 ore lavorative</strong>
+                all'indirizzo email che hai indicato.
+              </p>
+              <p class="cons-success__text mt-16">
+                Nel frattempo, puoi usare il simulatore per esplorare i tuoi scenari pensionistici.
+              </p>
+              <a href="calcolatore.html" class="btn btn--oro mt-24" style="display:inline-flex">
+                Prova il simulatore →
+              </a>
+            </div>
+
+          </div>
+
+          <!-- FAQ rapide -->
+          <div class="cons-faq">
+            <div class="cons-faq__title">Domande frequenti</div>
+            <div class="cons-faq__item">
+              <div class="cons-faq__q">Quanto dura una video consulenza?</div>
+              <div class="cons-faq__a">La sessione dura circa 60 minuti. Riceverai il link Zoom/Meet dopo la conferma.</div>
+            </div>
+            <div class="cons-faq__item">
+              <div class="cons-faq__q">Cosa mi serve per il report?</div>
+              <div class="cons-faq__a">Bastano i dati base: età, anni di contributi, reddito lordo. L'estratto INPS è utile ma non obbligatorio.</div>
+            </div>
+            <div class="cons-faq__item">
+              <div class="cons-faq__q">I consulenti vendono prodotti finanziari?</div>
+              <div class="cons-faq__a">No. Welfora è consulenza pura e indipendente. Non riceviamo commissioni da banche, assicurazioni o fondi.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">Wel<span>fora</span></div>
+          <p class="footer__tagline">Pianificazione previdenziale professionale e indipendente.</p>
+        </div>
+        <div>
+          <div class="footer__heading">Servizi</div>
+          <ul class="footer__links">
+            <li><a href="consulenza.html?servizio=report">Report Pensionistico</a></li>
+            <li><a href="consulenza.html?servizio=video-consulenza">Video Consulenza</a></li>
+            <li><a href="consulenza.html?servizio=protocollo">Protocollo Welfora</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__heading">Note legali</div>
+          <ul class="footer__links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span class="footer__copy">© 2026 Welfora — Tutti i diritti riservati</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="consulenza.js"></script>
+</body>
+</html>

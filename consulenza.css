@@ -1,0 +1,318 @@
+/* ═══════════════════════════════════════════════
+   consulenza.css — stili pagina prenotazione
+   ═══════════════════════════════════════════════ */
+
+/* ── Header ─────────────────────────────────────── */
+.cons-header {
+  padding: calc(var(--nav-h) + 56px) 0 48px;
+  background: var(--nero);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.cons-header .section-title { margin-bottom: 16px; }
+
+/* ── Main ───────────────────────────────────────── */
+.cons-main {
+  background: var(--antracite);
+  min-height: 70vh;
+  padding: 48px 0 80px;
+}
+
+.cons-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .cons-layout { grid-template-columns: 1fr; }
+}
+
+/* ── Step header ────────────────────────────────── */
+.cons-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.cons-step__num {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--oro);
+  line-height: 1;
+}
+.cons-step__label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── Service options ────────────────────────────── */
+.service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.service-option {
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+.service-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.service-option__inner {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.service-option:hover .service-option__inner {
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(255,255,255,0.06);
+}
+.service-option input:checked ~ .service-option__inner {
+  border-color: var(--oro);
+  background: rgba(201,168,76,0.08);
+}
+
+.service-option--featured .service-option__inner {
+  border-color: rgba(201,168,76,0.25);
+}
+.service-option--featured input:checked ~ .service-option__inner {
+  border-color: var(--oro);
+  background: rgba(201,168,76,0.1);
+}
+
+.service-option__badge {
+  position: absolute;
+  top: -1px; right: 16px;
+  background: var(--rosso);
+  color: var(--bianco);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.service-option__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.service-option__icon { font-size: 24px; }
+.service-option__price {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--oro);
+  line-height: 1;
+}
+.service-option__price span {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.4);
+}
+
+.service-option__name {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--bianco);
+  margin-bottom: 6px;
+}
+.service-option__desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.service-option__features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.service-option__features li {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── Garanzie ───────────────────────────────────── */
+.cons-garanzie {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cons-garanzia {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+.cons-garanzia__icon { font-size: 16px; flex-shrink: 0; }
+
+/* ── Form card ──────────────────────────────────── */
+.cons-form-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cons-form__servizio-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius);
+  flex-wrap: wrap;
+}
+.cons-form__servizio-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.cons-form__servizio-nome {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bianco);
+  flex: 1;
+}
+.cons-form__servizio-prezzo {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--oro);
+}
+
+#formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cons-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 500px) {
+  .cons-form-grid { grid-template-columns: 1fr; }
+}
+
+/* Textarea */
+.form-group textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  color: var(--bianco);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.form-group textarea:focus { border-color: var(--oro); }
+
+/* Privacy checkbox */
+.cons-privacy { }
+.cons-privacy__label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+.cons-privacy__label input[type="checkbox"] {
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: var(--oro);
+}
+.cons-privacy__label a { color: var(--oro); }
+.cons-privacy__label a:hover { text-decoration: underline; }
+
+.cons-submit { width: 100%; justify-content: center; }
+
+.cons-form__note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Success state ──────────────────────────────── */
+.cons-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+.cons-success__icon { font-size: 52px; margin-bottom: 20px; }
+.cons-success__title {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--bianco);
+  margin-bottom: 16px;
+}
+.cons-success__text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+.cons-success__text strong { color: var(--bianco); }
+
+/* ── FAQ ────────────────────────────────────────── */
+.cons-faq {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.cons-faq__title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--oro);
+  margin-bottom: 20px;
+}
+.cons-faq__item {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.cons-faq__item:last-child { border-bottom: none; padding-bottom: 0; }
+.cons-faq__q {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bianco);
+  margin-bottom: 6px;
+}
+.cons-faq__a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
