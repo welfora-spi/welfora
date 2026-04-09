@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accedi — Welfora</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .auth-page { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; }
+    .auth-left {
+      background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%);
+      display:flex; flex-direction:column; justify-content:space-between;
+      padding:48px; position:relative; overflow:hidden;
+    }
+    .auth-left::before {
+      content:''; position:absolute; width:400px; height:400px;
+      background:radial-gradient(circle,rgba(30,136,212,0.25) 0%,transparent 70%);
+      bottom:-100px; right:-100px; pointer-events:none;
+    }
+    .auth-pitch h2 { color:#fff; font-size:clamp(1.6rem,3vw,2.4rem); margin-bottom:20px; }
+    .auth-pitch p  { color:rgba(255,255,255,0.65); font-size:1rem; line-height:1.7; }
+    .auth-right {
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      padding:48px 40px; background:var(--bg);
+    }
+    .auth-card { width:100%; max-width:400px; }
+    .auth-card-title { font-size:1.8rem; margin-bottom:6px; }
+    .auth-card-sub   { color:var(--text-light); font-size:0.92rem; margin-bottom:32px; }
+    .auth-footer-text { text-align:center; margin-top:20px; font-size:0.88rem; color:var(--text-light); }
+    .auth-footer-text a { color:var(--blue); font-weight:500; }
+    @media (max-width:768px) {
+      .auth-page { grid-template-columns:1fr; }
+      .auth-left  { display:none; }
+      .auth-right { padding:80px 24px 40px; }
+    }
+  </style>
+</head>
+<body>
+<div class="auth-page">
+
+  <div class="auth-left">
+    <div>
+      <img src="logo.png" alt="Welfora" height="48" style="filter:brightness(0) invert(1);opacity:0.9" />
+    </div>
+    <div class="auth-pitch">
+      <h2>Bentornato su Welfora</h2>
+      <p>Accedi al tuo account per usare il calcolatore pensionistico o gestire le tue consulenze prenotate.</p>
+    </div>
+    <div style="font-size:0.82rem;color:rgba(255,255,255,0.35)">© 2025 Welfora · spitool.it</div>
+  </div>
+
+  <div class="auth-right">
+    <div class="auth-card">
+      <h2 class="auth-card-title">Accedi al tuo account</h2>
+      <p class="auth-card-sub">Inserisci le tue credenziali per continuare</p>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-control" type="email" id="email" name="email" placeholder="mario@studio.it" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input class="form-control" type="password" id="password" name="password" placeholder="La tua password" required />
+          <div style="text-align:right;margin-top:6px">
+            <a href="#" style="font-size:0.8rem;color:var(--blue)">Password dimenticata?</a>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:8px" id="loginBtn">
+          Accedi
+        </button>
+      </form>
+
+      <div class="auth-footer-text">
+        Non hai ancora un account? <a href="register.html">Registrati gratis</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="main.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = document.getElementById('loginBtn');
+  btn.disabled = true;
+  btn.textContent = 'Accesso in corso…';
+  // TODO: POST reale a app.spitool.it/api/welfora/login
+  await new Promise(r => setTimeout(r, 900));
+  window.location.href = 'dashboard.html';
+});
+</script>
+</body>
+</html>
