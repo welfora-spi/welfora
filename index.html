@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welfora — Consulenza Pensionistica in Videocall</title>
-  <meta name="description" content="Scopri quanto prenderai di pensione. Consulenza previdenziale personalizzata con un esperto Welfora, direttamente in videocall. Analisi completa + relazione scritta." />
+  <title>Welfora — Scopri quando puoi andare in pensione</title>
+  <meta name="description" content="Scopri quando puoi andare in pensione e con quanto. Videoconsulenza di 60 minuti con un esperto previdenziale. Analisi INPS, scenari personalizzati e report scritto. A partire da €49,90." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -159,6 +159,15 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(30,58,110,.22);
     }
+    .btn-green {
+      background: var(--gold-light);
+      color: #fff;
+    }
+    .btn-green:hover {
+      background: #4aa84a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(92,184,92,.35);
+    }
 
     /* ══ EYEBROW ══════════════════════════════════ */
     .eyebrow {
@@ -190,7 +199,6 @@
       align-items: center;
     }
 
-    /* Warm atmospheric glow */
     .hero__glow-1 {
       position: absolute;
       width: 720px; height: 720px;
@@ -205,7 +213,6 @@
       bottom: -100px; left: -80px;
       pointer-events: none;
     }
-    /* Subtle grain */
     .hero__grain {
       position: absolute;
       inset: 0;
@@ -235,11 +242,11 @@
 
     .hero__title {
       font-family: var(--serif);
-      font-size: clamp(3rem, 6vw, 5.4rem);
+      font-size: clamp(2.6rem, 5.5vw, 4.8rem);
       font-weight: 400;
-      line-height: 1.05;
+      line-height: 1.08;
       color: #e8f0ff;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       opacity: 0;
       animation: slideUp .8s ease .35s forwards;
     }
@@ -248,15 +255,28 @@
       color: var(--gold-light);
     }
 
+    .hero__tagline {
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(214,228,255,.6);
+      max-width: 500px;
+      margin-bottom: 20px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: slideUp .8s ease .47s forwards;
+    }
+
     .hero__sub {
-      font-size: 1rem;
+      font-size: .95rem;
       font-weight: 300;
       line-height: 1.85;
-      color: rgba(214,228,255,.5);
-      max-width: 460px;
+      color: rgba(214,228,255,.45);
+      max-width: 480px;
       margin-bottom: 44px;
       opacity: 0;
-      animation: slideUp .8s ease .5s forwards;
+      animation: slideUp .8s ease .55s forwards;
     }
 
     .hero__ctas {
@@ -264,7 +284,7 @@
       flex-wrap: wrap;
       gap: 14px;
       opacity: 0;
-      animation: slideUp .8s ease .65s forwards;
+      animation: slideUp .8s ease .68s forwards;
     }
 
     /* Hero offer card */
@@ -287,7 +307,7 @@
     }
     .hero__card-head {
       font-family: var(--serif);
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 400;
       color: #e8f0ff;
       line-height: 1.35;
@@ -338,34 +358,27 @@
       line-height: 1.4;
     }
 
-    /* ══ COME FUNZIONA ════════════════════════════ */
-    .steps {
+    /* ══ PROBLEMA ════════════════════════════════ */
+    .problema {
       padding: 96px 0;
       background: var(--cream);
     }
-    .steps__head {
+    .problema__head {
       text-align: center;
-      max-width: 580px;
+      max-width: 640px;
       margin: 0 auto 72px;
     }
-    .steps__head .eyebrow { justify-content: center; margin-bottom: 20px; }
-    .steps__title {
+    .problema__head .eyebrow { justify-content: center; margin-bottom: 20px; }
+    .problema__title {
       font-family: var(--serif);
-      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
       font-weight: 400;
       color: var(--dark);
       line-height: 1.2;
-      margin-bottom: 18px;
     }
-    .steps__title em { font-style: italic; color: #2a4f8f; }
-    .steps__sub {
-      font-size: .95rem;
-      font-weight: 300;
-      color: var(--warm-mid);
-      line-height: 1.8;
-    }
+    .problema__title em { font-style: italic; color: var(--dark-mid); }
 
-    .steps__grid {
+    .problema__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2px;
@@ -374,42 +387,35 @@
       overflow: hidden;
       border: 1px solid var(--cream-dark);
     }
-    .steps__item {
+    .problema__item {
       background: var(--cream);
       padding: 44px 36px;
     }
-    .steps__num {
+    .problema__mark {
       font-family: var(--serif);
-      font-size: 4rem;
+      font-size: 3.2rem;
       font-weight: 300;
       color: var(--gold);
-      opacity: .32;
+      opacity: .28;
       line-height: 1;
       margin-bottom: 18px;
     }
-    .steps__item-title {
+    .problema__text {
       font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 500;
+      font-size: 1.25rem;
+      font-weight: 400;
       color: var(--dark);
-      margin-bottom: 12px;
-      line-height: 1.3;
-    }
-    .steps__item-text {
-      font-size: .9rem;
-      font-weight: 300;
-      color: var(--warm-mid);
-      line-height: 1.8;
+      line-height: 1.45;
     }
 
-    /* ══ PERCHÉ WELFORA ═══════════════════════════ */
-    .why {
+    /* ══ COSA OTTIENI ════════════════════════════ */
+    .ottieni {
       padding: 96px 0;
       background: var(--dark);
       position: relative;
       overflow: hidden;
     }
-    .why::after {
+    .ottieni::after {
       content: '';
       position: absolute;
       width: 640px; height: 640px;
@@ -417,7 +423,7 @@
       bottom: -200px; left: -80px;
       pointer-events: none;
     }
-    .why__inner {
+    .ottieni__inner {
       position: relative;
       z-index: 1;
       display: grid;
@@ -425,31 +431,24 @@
       gap: 80px;
       align-items: start;
     }
-    .why__text .eyebrow { margin-bottom: 20px; }
-    .why__title {
+    .ottieni__text .eyebrow { margin-bottom: 20px; }
+    .ottieni__title {
       font-family: var(--serif);
       font-size: clamp(2rem, 3.5vw, 2.9rem);
       font-weight: 400;
       color: #e8f0ff;
       line-height: 1.2;
-      margin-bottom: 22px;
+      margin-bottom: 36px;
     }
-    .why__title em { font-style: italic; color: var(--gold-light); }
-    .why__desc {
-      font-size: .93rem;
-      font-weight: 300;
-      color: rgba(214,228,255,.45);
-      line-height: 1.9;
-      margin-bottom: 44px;
-    }
-    .why__list {
+    .ottieni__title em { font-style: italic; color: var(--gold-light); }
+    .ottieni__list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
     }
-    .why__list li { display: flex; gap: 16px; align-items: flex-start; }
-    .why__icon {
+    .ottieni__list li { display: flex; gap: 16px; align-items: flex-start; }
+    .ottieni__icon {
       width: 38px; height: 38px;
       border-radius: 50%;
       background: rgba(30,136,212,.1);
@@ -459,80 +458,175 @@
       color: var(--gold);
       font-size: .75rem;
     }
-    .why__item-title {
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: #e8f0ff;
-      margin-bottom: 4px;
-    }
-    .why__item-text {
-      font-size: .84rem;
+    .ottieni__item-text {
+      font-size: .9rem;
       font-weight: 300;
-      color: rgba(214,228,255,.42);
-      line-height: 1.65;
+      color: rgba(214,228,255,.55);
+      line-height: 1.7;
+      padding-top: 9px;
     }
 
-    /* Testimonial card */
-    .why__card {
+    /* Offer card (right col) */
+    .ottieni__card {
       background: rgba(255,255,255,.04);
       border: 1px solid rgba(30,136,212,.18);
       border-radius: var(--r-lg);
       padding: 44px 40px;
-      position: relative;
     }
-    .why__card-mark {
-      font-family: var(--serif);
-      font-size: 7rem;
-      line-height: .4;
-      color: var(--gold);
-      opacity: .22;
-      margin-bottom: 28px;
-      display: block;
-    }
-    .why__card-quote {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-style: italic;
-      font-weight: 300;
-      color: rgba(214,228,255,.82);
-      line-height: 1.75;
-      margin-bottom: 32px;
-    }
-    .why__card-author strong {
-      display: block;
-      font-family: var(--sans);
-      font-size: .8rem;
+    .ottieni__card-label {
+      font-size: .65rem;
       font-weight: 600;
-      letter-spacing: .06em;
+      letter-spacing: .2em;
+      text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 3px;
+      margin-bottom: 20px;
     }
-    .why__card-author span {
-      font-size: .78rem;
-      color: rgba(214,228,255,.3);
-    }
-    .why__stats {
-      margin-top: 36px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(30,136,212,.1);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .why__stat-val {
+    .ottieni__card-title {
       font-family: var(--serif);
-      font-size: 2.2rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #e8f0ff;
+      line-height: 1.35;
+      margin-bottom: 28px;
+    }
+    .ottieni__card-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .84rem;
+      font-weight: 300;
+      color: rgba(214,228,255,.4);
+      margin-bottom: 16px;
+    }
+    .ottieni__card-detail span { color: var(--gold); font-size: .7rem; }
+    .ottieni__card-divider {
+      border: none;
+      border-top: 1px solid rgba(30,136,212,.12);
+      margin: 28px 0;
+    }
+    .ottieni__card-price {
+      font-family: var(--serif);
+      font-size: 2.6rem;
       font-weight: 400;
       color: var(--gold-light);
       line-height: 1;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
-    .why__stat-key {
-      font-size: .72rem;
+    .ottieni__card-price-sub {
+      font-size: .8rem;
+      font-weight: 300;
+      color: rgba(214,228,255,.3);
+      margin-bottom: 26px;
+    }
+
+    /* ══ PER CHI È ════════════════════════════════ */
+    .forchi {
+      padding: 96px 0;
+      background: var(--cream-mid);
+    }
+    .forchi__head {
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto 64px;
+    }
+    .forchi__head .eyebrow { justify-content: center; margin-bottom: 20px; }
+    .forchi__title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
       font-weight: 400;
-      color: rgba(214,228,255,.28);
-      letter-spacing: .04em;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .forchi__title em { font-style: italic; color: var(--dark-mid); }
+
+    .forchi__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--cream-dark);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--cream-dark);
+    }
+    .forchi__item {
+      background: var(--cream-mid);
+      padding: 40px 32px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .forchi__check {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: .72rem;
+      margin-top: 2px;
+    }
+    .forchi__text {
+      font-family: var(--serif);
+      font-size: 1.18rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.45;
+    }
+
+    /* ══ CTA BANNER (PREZZO) ════════════════════ */
+    .cta-banner {
+      padding: 96px 0;
+      background: var(--dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      width: 640px; height: 640px;
+      background: radial-gradient(circle, rgba(30,136,212,.1) 0%, transparent 65%);
+      top: -160px; left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .cta-banner__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .cta-banner__inner .eyebrow { justify-content: center; margin-bottom: 24px; }
+    .cta-banner__title {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: #e8f0ff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .cta-banner__price {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.5vw, 4.2rem);
+      font-weight: 400;
+      color: var(--gold-light);
+      line-height: 1;
+      margin: 24px 0 8px;
+    }
+    .cta-banner__price-sub {
+      font-size: .88rem;
+      font-weight: 300;
+      color: rgba(214,228,255,.35);
+      margin-bottom: 38px;
+      line-height: 1.6;
+    }
+    .cta-banner__note {
+      margin-top: 18px;
+      font-size: .76rem;
+      font-weight: 300;
+      color: rgba(214,228,255,.25);
+      line-height: 1.6;
     }
 
     /* ══ FORM ═════════════════════════════════════ */
@@ -738,16 +832,19 @@
 
     /* ══ RESPONSIVE ════════════════════════════════ */
     @media (max-width: 960px) {
-      .hero__inner  { grid-template-columns: 1fr; gap: 48px; padding-top: calc(var(--nav-h) + 40px); }
-      .hero__card   { max-width: 480px; }
-      .steps__grid  { grid-template-columns: 1fr; }
-      .why__inner   { grid-template-columns: 1fr; gap: 48px; }
+      .hero__inner    { grid-template-columns: 1fr; gap: 48px; padding-top: calc(var(--nav-h) + 40px); }
+      .hero__card     { max-width: 480px; }
+      .problema__grid { grid-template-columns: 1fr; }
+      .ottieni__inner { grid-template-columns: 1fr; gap: 48px; }
+      .forchi__grid   { grid-template-columns: 1fr; }
       .contact__inner { grid-template-columns: 1fr; gap: 48px; }
     }
     @media (max-width: 640px) {
-      .steps { padding: 64px 0; }
-      .why   { padding: 64px 0; }
-      .contact { padding: 64px 0; }
+      .problema  { padding: 64px 0; }
+      .ottieni   { padding: 64px 0; }
+      .forchi    { padding: 64px 0; }
+      .cta-banner { padding: 64px 0; }
+      .contact   { padding: 64px 0; }
       .f-row { grid-template-columns: 1fr; }
       .form-wrap { padding: 28px 22px; }
       .footer__inner { flex-direction: column; align-items: center; text-align: center; }
@@ -780,35 +877,38 @@
       <div class="hero__eyebrow eyebrow">Consulenza previdenziale professionale</div>
 
       <h1 class="hero__title">
-        Scopri quanto<br/>
-        prenderai davvero<br/>
-        di <em>pensione</em>
+        Scopri quando puoi<br/>
+        andare in pensione —<br/>
+        e con <em>quanto</em>
       </h1>
 
+      <p class="hero__tagline">
+        Quando esci e quanto prenderai non sono la stessa domanda. Le scelte che farai cambieranno la tua pensione per sempre — scoprilo prima che sia tardi.
+      </p>
+
       <p class="hero__sub">
-        Una videocall di 60 minuti con un esperto Welfora. Analizziamo la tua posizione INPS, costruiamo i tuoi scenari di uscita e ti diciamo cosa fare — adesso.
+        Una videoconsulenza di 60 minuti con un esperto previdenziale. Analizziamo la tua posizione INPS, costruiamo i tuoi scenari reali e ti diciamo esattamente cosa fare.
       </p>
 
       <div class="hero__ctas">
-        <a href="#contatti" class="btn btn-gold">Prenota la consulenza</a>
-        <a href="#come-funziona" class="btn btn-ghost">Come funziona</a>
+        <a href="#contatti" class="btn btn-green">Prenota la tua consulenza — a partire da €49,90</a>
       </div>
     </div>
 
     <!-- Offer card -->
     <div class="hero__card">
-      <div class="hero__card-tag">Cosa ottieni</div>
-      <div class="hero__card-head">Una consulenza pensata per te, non per tutti</div>
+      <div class="hero__card-tag">In 60 minuti hai</div>
+      <div class="hero__card-head">Un piano chiaro, costruito sui tuoi dati reali</div>
       <ul class="hero__card-list">
-        <li>Analisi della tua posizione contributiva INPS reale</li>
-        <li>Scenari personalizzati: vecchiaia, anticipata, Quota 103, APe Sociale</li>
-        <li>Stima dell'importo mensile lordo e netto</li>
-        <li>Strategia concreta: cosa fare nei prossimi anni</li>
-        <li>Relazione scritta inviata entro 48 h dalla call</li>
+        <li>Analisi della tua posizione contributiva INPS</li>
+        <li>Scenari personalizzati: quando esci e con quale importo</li>
+        <li>Stima della pensione lorda e netta mese per mese</li>
+        <li>Strategia concreta per i prossimi 12 mesi</li>
+        <li>Report scritto entro 48h dalla call</li>
       </ul>
       <div class="hero__card-price">
-        <strong>€ 149</strong>
-        <span>videocall 60 min<br/>+ relazione scritta</span>
+        <strong>da €49,90</strong>
+        <span>videoconsulenza 60 min<br/>+ report scritto</span>
       </div>
     </div>
 
@@ -816,31 +916,27 @@
 </section>
 
 
-<!-- ══ COME FUNZIONA ════════════════════════════════════ -->
-<section class="steps" id="come-funziona">
+<!-- ══ SEZIONE PROBLEMA ══════════════════════════════════ -->
+<section class="problema" id="problema">
   <div class="container">
 
-    <div class="steps__head reveal">
-      <div class="eyebrow">Come funziona</div>
-      <h2 class="steps__title">La consulenza previdenziale<br/><em>reinventata</em></h2>
-      <p class="steps__sub">Niente uffici, niente attese. Un esperto dedicato, i tuoi documenti INPS e una videocall. In 60 minuti hai un quadro completo della tua pensione futura.</p>
+    <div class="problema__head reveal">
+      <div class="eyebrow">Il problema</div>
+      <h2 class="problema__title">Hai tra i 35 e i 55 anni. La pensione sembra lontana —<br/><em>ma le decisioni si prendono adesso.</em></h2>
     </div>
 
-    <div class="steps__grid reveal">
-      <div class="steps__item">
-        <div class="steps__num">01</div>
-        <h3 class="steps__item-title">Prenoti in due minuti</h3>
-        <p class="steps__item-text">Compila il form qui sotto, scegli data e orario che ti sono comodi. Ricevi conferma immediata via email con il link alla videocall.</p>
+    <div class="problema__grid reveal">
+      <div class="problema__item">
+        <div class="problema__mark">?</div>
+        <p class="problema__text">Non sai esattamente quando potrai smettere di lavorare</p>
       </div>
-      <div class="steps__item">
-        <div class="steps__num">02</div>
-        <h3 class="steps__item-title">Analizziamo insieme la tua situazione</h3>
-        <p class="steps__item-text">Durante la call esaminiamo il tuo estratto conto INPS, la storia contributiva e i tuoi obiettivi. Niente formule astratte — solo risposte concrete.</p>
+      <div class="problema__item">
+        <div class="problema__mark">?</div>
+        <p class="problema__text">Hai sentito parlare di pensione anticipata e vecchiaia — ma non sai se e quando ti riguardano</p>
       </div>
-      <div class="steps__item">
-        <div class="steps__num">03</div>
-        <h3 class="steps__item-title">Ricevi la relazione scritta</h3>
-        <p class="steps__item-text">Entro 48 ore ti inviamo un documento completo: scenari calcolati, date di uscita possibili e i passi da seguire per ottimizzare la tua pensione.</p>
+      <div class="problema__item">
+        <div class="problema__mark">?</div>
+        <p class="problema__text">Ogni anno che passa senza una strategia ti costa contributi, rendimento e tempo</p>
       </div>
     </div>
 
@@ -848,61 +944,107 @@
 </section>
 
 
-<!-- ══ PERCHÉ WELFORA ════════════════════════════════════ -->
-<section class="why">
+<!-- ══ SEZIONE COSA OTTIENI ══════════════════════════════ -->
+<section class="ottieni" id="cosa-ottieni">
   <div class="container">
-    <div class="why__inner">
+    <div class="ottieni__inner">
 
-      <!-- Left: reasons -->
-      <div class="why__text reveal">
-        <div class="eyebrow">Perché Welfora</div>
-        <h2 class="why__title">Le regole pensionistiche sono <em>complesse</em>. Noi le conosciamo.</h2>
-        <p class="why__desc">Il sistema previdenziale italiano è uno dei più articolati al mondo. Calcolare correttamente la propria pensione richiede anni di esperienza e aggiornamento continuo. È esattamente quello che facciamo — ogni giorno.</p>
-        <ul class="why__list">
+      <!-- Left: bullets -->
+      <div class="ottieni__text reveal">
+        <div class="eyebrow">Cosa ottieni</div>
+        <h2 class="ottieni__title">In 60 minuti<br/>hai un piano <em>chiaro</em></h2>
+        <ul class="ottieni__list">
           <li>
-            <div class="why__icon">✦</div>
-            <div>
-              <div class="why__item-title">INPS e casse professionali</div>
-              <div class="why__item-text">Gestiamo FPLD, Gestione Separata, artigiani, commercianti e 9 casse professionali: INARCASSA, Cassa Forense, ENPAM, ENPACL e altre.</div>
-            </div>
+            <div class="ottieni__icon">✦</div>
+            <div class="ottieni__item-text">Analisi della tua posizione contributiva reale su dati INPS</div>
           </li>
           <li>
-            <div class="why__icon">✦</div>
-            <div>
-              <div class="why__item-title">Normativa aggiornata in tempo reale</div>
-              <div class="why__item-text">Quota 103, APe Sociale, pensione anticipata flessibile: seguiamo ogni legge di bilancio e aggiorniamo i parametri di calcolo immediatamente.</div>
-            </div>
+            <div class="ottieni__icon">✦</div>
+            <div class="ottieni__item-text">Scenari personalizzati: quando puoi uscire e con quale importo</div>
           </li>
           <li>
-            <div class="why__icon">✦</div>
-            <div>
-              <div class="why__item-title">Nessun conflitto di interessi</div>
-              <div class="why__item-text">Non vendiamo prodotti finanziari. Il nostro unico obiettivo è darti un'analisi corretta e una strategia efficace per la tua situazione specifica.</div>
-            </div>
+            <div class="ottieni__icon">✦</div>
+            <div class="ottieni__item-text">Stima della pensione lorda e netta mese per mese</div>
+          </li>
+          <li>
+            <div class="ottieni__icon">✦</div>
+            <div class="ottieni__item-text">Strategia concreta: cosa fare nei prossimi 12 mesi</div>
+          </li>
+          <li>
+            <div class="ottieni__icon">✦</div>
+            <div class="ottieni__item-text">Report scritto inviato entro 48h dalla call</div>
           </li>
         </ul>
       </div>
 
-      <!-- Right: testimonial -->
-      <div class="why__card reveal reveal-d2">
-        <span class="why__card-mark">"</span>
-        <p class="why__card-quote">Non sapevo se sarei riuscita ad andare in pensione a 62 anni. Dopo la consulenza Welfora ho capito esattamente cosa fare — e ho iniziato a farlo.</p>
-        <div class="why__card-author">
-          <strong>Maria G.</strong>
-          <span>Commercialista, 54 anni · Milano</span>
+      <!-- Right: offer card -->
+      <div class="ottieni__card reveal reveal-d2">
+        <div class="ottieni__card-label">La consulenza include</div>
+        <div class="ottieni__card-title">Una videoconsulenza pensata per la tua situazione specifica, non per tutti</div>
+
+        <div class="ottieni__card-detail">
+          <span>▶</span>
+          Videocall 60 minuti con esperto previdenziale
         </div>
-        <div class="why__stats">
-          <div>
-            <div class="why__stat-val">200+</div>
-            <div class="why__stat-key">consulenze erogate</div>
-          </div>
-          <div>
-            <div class="why__stat-val">98%</div>
-            <div class="why__stat-key">clienti soddisfatti</div>
-          </div>
+        <div class="ottieni__card-detail">
+          <span>✉</span>
+          Report scritto personalizzato entro 48h
         </div>
+        <div class="ottieni__card-detail">
+          <span>✦</span>
+          Nessun conflitto di interessi — non vendiamo prodotti finanziari
+        </div>
+
+        <hr class="ottieni__card-divider"/>
+
+        <div class="ottieni__card-price">da €49,90</div>
+        <div class="ottieni__card-price-sub">videoconsulenza 60 min + report scritto</div>
+        <a href="#contatti" class="btn btn-green" style="width:100%;justify-content:center;font-size:.78rem;">Prenota ora →</a>
       </div>
 
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SEZIONE PER CHI È ═════════════════════════════════ -->
+<section class="forchi" id="per-chi">
+  <div class="container">
+
+    <div class="forchi__head reveal">
+      <div class="eyebrow">Per chi è</div>
+      <h2 class="forchi__title"><em>È per te</em> se…</h2>
+    </div>
+
+    <div class="forchi__grid reveal">
+      <div class="forchi__item">
+        <div class="forchi__check">✓</div>
+        <p class="forchi__text">Sei un lavoratore dipendente tra i 35 e i 55 anni</p>
+      </div>
+      <div class="forchi__item">
+        <div class="forchi__check">✓</div>
+        <p class="forchi__text">Sei quadro o dirigente e vuoi capire l'impatto fiscale della tua uscita</p>
+      </div>
+      <div class="forchi__item">
+        <div class="forchi__check">✓</div>
+        <p class="forchi__text">Vuoi smettere di rimandare e avere finalmente un piano</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ PREZZO E CTA ══════════════════════════════════════ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner__inner reveal">
+      <div class="eyebrow">Prenota ora</div>
+      <h2 class="cta-banner__title">Pianifica la tua pensione con chi la conosce davvero</h2>
+      <div class="cta-banner__price">a partire da €49,90</div>
+      <div class="cta-banner__price-sub">videoconsulenza 60 min + report scritto</div>
+      <a href="#contatti" class="btn btn-green" style="font-size:.82rem;padding:18px 48px;">Prenota ora</a>
+      <p class="cta-banner__note">Ti contatteremo entro 24h per confermare data e ora</p>
     </div>
   </div>
 </section>
@@ -917,11 +1059,11 @@
       <div class="contact__info reveal">
         <div class="eyebrow">Prenota ora</div>
         <h2 class="contact__title">Inizia con una<br/><em>conversazione</em></h2>
-        <p class="contact__desc">Lascia nome, email e telefono. Ti ricontattiamo entro poche ore per concordare data e orario della videocall. Nessun impegno, nessun costo nascosto fino alla conferma.</p>
+        <p class="contact__desc">Lascia nome, email e telefono. Ti ricontattiamo entro 24 ore per concordare data e orario della videoconsulenza. Nessun impegno, nessun costo nascosto fino alla conferma.</p>
         <div class="contact__details">
           <div class="contact__detail">
             <div class="contact__dot">✉</div>
-            <span>Risposta garantita entro 24 ore lavorative</span>
+            <span>Risposta garantita entro 24 ore</span>
           </div>
           <div class="contact__detail">
             <div class="contact__dot">▶</div>
@@ -929,7 +1071,7 @@
           </div>
           <div class="contact__detail">
             <div class="contact__dot">✦</div>
-            <span>Relazione scritta personalizzata inclusa nel prezzo</span>
+            <span>Report scritto personalizzato incluso nel prezzo</span>
           </div>
         </div>
       </div>
@@ -964,7 +1106,7 @@
             </div>
 
             <div class="f-group">
-              <label class="f-label" for="messaggio">Messaggio <em>(opzionale)</em></label>
+              <label class="f-label" for="messaggio">Come possiamo aiutarti? <em>(opzionale)</em></label>
               <textarea class="f-input" id="messaggio" name="messaggio" placeholder="Raccontaci brevemente la tua situazione o le domande che vuoi approfondire…"></textarea>
             </div>
 
@@ -978,7 +1120,7 @@
         <div class="form-success" id="formSuccess">
           <div class="form-success__mark">✦</div>
           <h3 class="form-success__title">Richiesta inviata</h3>
-          <p class="form-success__text">Grazie! Ti ricontattiamo entro 24 ore lavorative per concordare data e orario della tua consulenza.</p>
+          <p class="form-success__text">Grazie! Ti ricontattiamo entro 24 ore per concordare data e orario della tua consulenza.</p>
         </div>
 
       </div>
@@ -992,11 +1134,11 @@
   <div class="container">
     <div class="footer__inner">
       <span class="footer__logo">Wel<em>f</em>ora</span>
-      <span class="footer__copy">© 2025 Welfora · Consulenza Previdenziale Professionale</span>
+      <span class="footer__copy">© 2025 Welfora — New Welfare S.r.l.</span>
       <div class="footer__links">
         <a href="#">Privacy Policy</a>
         <a href="#">Termini di servizio</a>
-        <a href="mailto:info@welfora.it">info@welfora.it</a>
+        <a href="mailto:raffaele@newwelfare.it">raffaele@newwelfare.it</a>
       </div>
     </div>
   </div>
@@ -1050,14 +1192,12 @@
       'Nome: ' + nome + ' ' + cognome + '\n' +
       'Email: ' + email + '\n' +
       'Telefono: ' + telefono + '\n\n' +
-      (msg ? 'Messaggio:\n' + msg + '\n\n' : '') +
+      (msg ? 'Come possiamo aiutarti:\n' + msg + '\n\n' : '') +
       'Cordiali saluti,\n' + nome + ' ' + cognome
     );
 
-    // Open mail client
-    window.location.href = 'mailto:info@welfora.it?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:raffaele@newwelfare.it?subject=' + subject + '&body=' + body;
 
-    // Show success after short delay (assuming mail client opened)
     setTimeout(() => {
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
