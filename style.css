@@ -191,7 +191,7 @@ a { color: inherit; text-decoration: none; }
     position: absolute;
     top: 72px; left: 0; right: 0;
     flex-direction: column;
-    background: var(--cream);
+    background: var(--white);
     border-bottom: 1px solid var(--border);
     padding: 24px 32px;
     gap: 20px;
