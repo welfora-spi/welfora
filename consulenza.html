@@ -19,11 +19,11 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="calcolatore.html">Calcolatore</a></li>
         <li><a href="consulenza.html">Consulenza</a></li>
-        <li><a href="login.html">
-          <span class="btn btn-primary" style="padding:9px 22px;font-size:0.82rem;">Accedi al calcolo</span>
+        <li><a href="#prenotazione">
+          <span class="btn btn-primary" style="padding:9px 22px;font-size:0.82rem;">Prenota ora</span>
         </a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="nav-toggle" aria-label="Apri il menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </nav>
   </div>
 </header>
@@ -50,14 +50,14 @@
           <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
         </svg>
       </div>
-      <h4>Consulenza Base</h4>
-      <p>Prima analisi della tua situazione previdenziale. Stima pensione, anni al traguardo e scenario di uscita ottimale.</p>
+      <h4>Video Orientamento</h4>
+      <p>Un primo confronto mirato per chiarire la tua situazione, verificare le priorità e capire quali approfondimenti servono.</p>
       <div style="margin-top:20px">
-        <span style="font-family:var(--font-serif);font-size:1.8rem;color:var(--navy)">€ 90</span>
+        <span style="font-family:var(--font-serif);font-size:1.8rem;color:var(--navy)">€ 49,90</span>
       </div>
       <div class="service-duration">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        45 minuti · videocall o telefono
+        30 minuti · videocall
       </div>
     </div>
 
@@ -68,14 +68,14 @@
         </svg>
       </div>
       <span class="chip blue" style="margin-bottom:8px;display:inline-block">Più scelto</span>
-      <h4>Analisi Completa</h4>
-      <p>Analisi approfondita con estratto conto INPS, simulazione multi-scenario, riscatto laurea e relazione scritta personalizzata.</p>
+      <h4>Video Consulenza</h4>
+      <p>Analisi della posizione INPS, simulazione degli scenari principali e indicazioni operative personalizzate.</p>
       <div style="margin-top:20px">
-        <span style="font-family:var(--font-serif);font-size:1.8rem;color:var(--navy)">€ 180</span>
+        <span style="font-family:var(--font-serif);font-size:1.8rem;color:var(--navy)">€ 89</span>
       </div>
       <div class="service-duration">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        90 minuti + relazione scritta
+        60 minuti · videocall
       </div>
     </div>
 
@@ -85,14 +85,14 @@
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
         </svg>
       </div>
-      <h4>Consulenza Aziende</h4>
-      <p>Per studi professionali e aziende: formazione del team, analisi previdenziale per i dipendenti, welfare aziendale.</p>
+      <h4>Video + Report</h4>
+      <p>Analisi approfondita dell’estratto conto INPS, scenari personalizzati e relazione scritta riepilogativa.</p>
       <div style="margin-top:20px">
-        <span style="font-family:var(--font-serif);font-size:1.8rem;color:var(--navy)">Su misura</span>
+        <span style="font-family:var(--font-serif);font-size:1.8rem;color:var(--navy)">€ 149</span>
       </div>
       <div class="service-duration">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Da definire · preventivo gratuito
+        90 minuti · videocall + report
       </div>
     </div>
   </div>
@@ -100,18 +100,19 @@
 
 <!-- BOOKING FORM -->
 <div class="container">
-  <div class="booking-form-wrap fade-up">
+  <div class="booking-form-wrap fade-up" id="prenotazione">
     <h3>Richiedi un appuntamento</h3>
-    <p style="color:var(--text-light);margin-bottom:32px;font-size:0.95rem">Ti ricontatteremo entro 24h per confermare data e orario.</p>
+    <p style="color:var(--text-light);margin-bottom:32px;font-size:0.95rem">Compila i dati: si aprirà un’email già pronta da inviare. Ti ricontatteremo entro 24 ore lavorative per confermare data, piattaforma e pagamento.</p>
 
     <form id="bookingForm" novalidate>
-      <input type="hidden" id="servizio_scelto" name="servizio" value="" />
-
       <div style="margin-bottom:24px">
-        <label class="form-label">Tipo di consulenza selezionata</label>
-        <div id="servizio-display" style="padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--bg);font-size:0.95rem;color:var(--text-light)">
-          Seleziona un servizio qui sopra ↑
-        </div>
+        <label class="form-label" for="servizio_scelto">Tipo di consulenza</label>
+        <select class="form-control" id="servizio_scelto" name="servizio" required>
+          <option value="">Seleziona…</option>
+          <option value="base">Video Orientamento — €49,90 · 30 min</option>
+          <option value="completa">Video Consulenza — €89 · 60 min</option>
+          <option value="aziende">Video + Report — €149 · 90 min + report</option>
+        </select>
       </div>
 
       <div class="form-row">
@@ -170,12 +171,12 @@
       <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;margin-top:8px">
         <input type="checkbox" id="privacy" name="privacy" required style="margin-top:4px;flex-shrink:0;accent-color:var(--blue)" />
         <label for="privacy" style="font-size:0.85rem;color:var(--text-mid);line-height:1.5;cursor:pointer">
-          Ho letto e accetto la <a href="#" style="color:var(--blue)">Privacy Policy</a>. I miei dati saranno trattati esclusivamente per la gestione della consulenza.
+          Ho letto e accetto la <a href="privacy.html" target="_blank" rel="noopener" style="color:var(--blue)">Privacy Policy</a>. I miei dati saranno trattati esclusivamente per la gestione della consulenza.
         </label>
       </div>
 
       <button type="submit" class="btn btn-primary btn-lg" id="bookBtn" style="width:100%;justify-content:center">
-        Invia richiesta di appuntamento
+        Prepara la richiesta via email
       </button>
     </form>
 
@@ -184,8 +185,8 @@
       <div style="width:64px;height:64px;background:rgba(92,184,92,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <h3 style="margin-bottom:12px">Richiesta inviata!</h3>
-      <p style="max-width:400px;margin:0 auto;color:var(--text-mid)">Ti contatteremo entro 24 ore lavorative per confermare data e orario della consulenza.</p>
+      <h3 style="margin-bottom:12px">Completa l’invio nell’app email</h3>
+      <p style="max-width:400px;margin:0 auto;color:var(--text-mid)">La richiesta è stata preparata. Premi Invia nella tua app email; ti risponderemo entro 24 ore lavorative.</p>
       <a href="index.html" class="btn btn-outline" style="margin-top:32px">Torna alla home</a>
     </div>
   </div>
@@ -195,11 +196,12 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-bottom" style="border-top:none;padding-top:0">
-      <span>© 2025 Welfora · SPI Sistema Pensionistico Integrato</span>
+      <span>© 2026 Welfora · SPI Sistema Pensionistico Integrato</span>
       <div style="display:flex;gap:24px">
         <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem">Home</a>
         <a href="calcolatore.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem">Calcolatore</a>
-        <a href="#" style="color:rgba(255,255,255,0.5);font-size:0.85rem">Privacy</a>
+        <a href="privacy.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem">Privacy</a>
+        <a href="termini.html" style="color:rgba(255,255,255,0.5);font-size:0.85rem">Termini</a>
       </div>
     </div>
   </div>
@@ -208,20 +210,23 @@
 <script src="main.js"></script>
 <script>
 const SERVIZI_LABEL = {
-  base:     'Consulenza Base — €90 · 45 min',
-  completa: 'Analisi Completa — €180 · 90 min + relazione',
-  aziende:  'Consulenza Aziende — su misura',
+  base:     'Video Orientamento — €49,90 · 30 min',
+  completa: 'Video Consulenza — €89 · 60 min',
+  aziende:  'Video + Report — €149 · 90 min + report',
 };
 
 function selectService(key, el) {
   document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
   document.getElementById('servizio_scelto').value = key;
-  const display = document.getElementById('servizio-display');
-  display.textContent    = SERVIZI_LABEL[key];
-  display.style.color    = 'var(--navy)';
-  display.style.borderColor = 'var(--blue)';
+  document.getElementById('prenotazione').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+
+document.getElementById('servizio_scelto').addEventListener('change', function () {
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.classList.toggle('selected', card.dataset.service === this.value);
+  });
+});
 
 const params = new URLSearchParams(window.location.search);
 const presel = params.get('servizio');
@@ -232,15 +237,36 @@ if (presel) {
 
 document.getElementById('bookingForm').addEventListener('submit', async e => {
   e.preventDefault();
+  const form = e.currentTarget;
+  const servizio = document.getElementById('servizio_scelto').value;
+  if (!servizio) {
+    alert('Seleziona prima una tipologia di consulenza.');
+    return;
+  }
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
   if (!document.getElementById('privacy').checked) {
     alert('Accetta la privacy policy per procedere.');
     return;
   }
   const btn = document.getElementById('bookBtn');
   btn.disabled = true;
-  btn.textContent = 'Invio in corso…';
-  await new Promise(r => setTimeout(r, 1200));
-  // TODO: fetch('https://app.spitool.it/api/welfora/consulenza', { method:'POST', ... })
+  btn.textContent = 'Apertura email…';
+  const dati = new FormData(form);
+  const corpo = [
+    `Servizio: ${SERVIZI_LABEL[servizio]}`,
+    `Nome: ${dati.get('nome')} ${dati.get('cognome')}`,
+    `Email: ${dati.get('email')}`,
+    `Telefono: ${dati.get('telefono') || 'non indicato'}`,
+    `Professione: ${dati.get('professione') || 'non indicata'}`,
+    `Disponibilità: ${dati.get('disponibilita') || 'nessuna preferenza'}`,
+    `Note: ${dati.get('note') || 'nessuna'}`
+  ].join('\n');
+  const oggetto = `Richiesta Welfora — ${SERVIZI_LABEL[servizio]}`;
+  window.location.href = `mailto:raffaele.patarino@spitool.it?subject=${encodeURIComponent(oggetto)}&body=${encodeURIComponent(corpo)}`;
+  await new Promise(r => setTimeout(r, 300));
   document.getElementById('bookingForm').style.display = 'none';
   document.getElementById('bookingSuccess').style.display = 'block';
 });

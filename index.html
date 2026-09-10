@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welfora — Scopri quando puoi andare in pensione</title>
-  <meta name="description" content="Scopri quando puoi andare in pensione e con quanto. Videoconsulenza di 60 minuti con un esperto previdenziale. Analisi INPS, scenari personalizzati e report scritto. A partire da €49,90." />
+  <meta name="description" content="Scopri quando puoi andare in pensione e con quanto. Videoconsulenza previdenziale con un esperto, analisi INPS, scenari personalizzati e report scritto." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -891,7 +891,7 @@
       </p>
 
       <div class="hero__ctas">
-        <a href="#contatti" class="btn btn-green">Prenota la tua consulenza — a partire da €49,90</a>
+        <a href="consulenza.html" class="btn btn-green">Scopri le videoconsulenze — da €49,90</a>
       </div>
     </div>
 
@@ -907,7 +907,7 @@
         <li>Report scritto entro 48h dalla call</li>
       </ul>
       <div class="hero__card-price">
-        <strong>da €49,90</strong>
+        <strong>€149</strong>
         <span>videoconsulenza 60 min<br/>+ report scritto</span>
       </div>
     </div>
@@ -997,7 +997,7 @@
 
         <hr class="ottieni__card-divider"/>
 
-        <div class="ottieni__card-price">da €49,90</div>
+        <div class="ottieni__card-price">€149</div>
         <div class="ottieni__card-price-sub">videoconsulenza 60 min + report scritto</div>
         <a href="#contatti" class="btn btn-green" style="width:100%;justify-content:center;font-size:.78rem;">Prenota ora →</a>
       </div>
@@ -1041,7 +1041,7 @@
     <div class="cta-banner__inner reveal">
       <div class="eyebrow">Prenota ora</div>
       <h2 class="cta-banner__title">Pianifica la tua pensione con chi la conosce davvero</h2>
-      <div class="cta-banner__price">a partire da €49,90</div>
+      <div class="cta-banner__price">€149</div>
       <div class="cta-banner__price-sub">videoconsulenza 60 min + report scritto</div>
       <a href="#contatti" class="btn btn-green" style="font-size:.82rem;padding:18px 48px;">Prenota ora</a>
       <p class="cta-banner__note">Ti contatteremo entro 24h per confermare data e ora</p>
@@ -1110,6 +1110,11 @@
               <textarea class="f-input" id="messaggio" name="messaggio" placeholder="Raccontaci brevemente la tua situazione o le domande che vuoi approfondire…"></textarea>
             </div>
 
+            <div class="f-group" style="display:flex;align-items:flex-start;gap:10px">
+              <input type="checkbox" id="privacy-consent" required style="margin-top:4px;accent-color:var(--blue)" />
+              <label for="privacy-consent" style="font-size:.82rem;line-height:1.5;color:var(--muted)">Ho letto e accetto la <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</label>
+            </div>
+
             <button type="submit" class="btn btn-dark f-submit">
               Invia richiesta →
             </button>
@@ -1119,8 +1124,8 @@
 
         <div class="form-success" id="formSuccess">
           <div class="form-success__mark">✦</div>
-          <h3 class="form-success__title">Richiesta inviata</h3>
-          <p class="form-success__text">Grazie! Ti ricontattiamo entro 24 ore per concordare data e orario della tua consulenza.</p>
+          <h3 class="form-success__title">Completa l’invio nell’app email</h3>
+          <p class="form-success__text">Il messaggio è pronto. Premi Invia nella tua app email; ti ricontatteremo entro 24 ore lavorative.</p>
         </div>
 
       </div>
@@ -1134,11 +1139,11 @@
   <div class="container">
     <div class="footer__inner">
       <span class="footer__logo">Wel<em>f</em>ora</span>
-      <span class="footer__copy">© 2025 Welfora — New Welfare S.r.l.</span>
+      <span class="footer__copy">© 2026 Welfora — New Welfare S.r.l.</span>
       <div class="footer__links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Termini di servizio</a>
-        <a href="mailto:raffaele@newwelfare.it">raffaele@newwelfare.it</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="termini.html">Termini di servizio</a>
+        <a href="mailto:raffaele.patarino@spitool.it">raffaele.patarino@spitool.it</a>
       </div>
     </div>
   </div>
@@ -1173,6 +1178,7 @@
     const email    = document.getElementById('email').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
     const msg      = document.getElementById('messaggio').value.trim();
+    const privacy  = document.getElementById('privacy-consent').checked;
 
     if (!nome || !cognome || !email || !telefono) {
       alert('Compila tutti i campi obbligatori per procedere.');
@@ -1180,6 +1186,10 @@
     }
     if (!email.includes('@')) {
       alert('Inserisci un indirizzo email valido.');
+      return;
+    }
+    if (!privacy) {
+      alert('Accetta la Privacy Policy per procedere.');
       return;
     }
 
@@ -1196,7 +1206,7 @@
       'Cordiali saluti,\n' + nome + ' ' + cognome
     );
 
-    window.location.href = 'mailto:raffaele@newwelfare.it?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:raffaele.patarino@spitool.it?subject=' + subject + '&body=' + body;
 
     setTimeout(() => {
       document.getElementById('formContent').style.display = 'none';
